@@ -1,0 +1,335 @@
+.course-home .course-item {
+    position: relative;
+    margin: 9px;
+    color: #566375;
+    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1);
+    border-radius: 9px;
+    background-color: #fff;
+    height: 200px;
+    border: none;
+    overflow: hidden;
+    transition: 0.25s ease-in-out;
+    &:hover {
+        box-shadow: 0 12px 19px rgba(0, 0, 0, 0.3), 0 0 9px rgba(0, 0, 0, 0.2);
+        background: #141236;
+        color: #fff;
+    }
+    .item-background {
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 150px;
+    }
+    .item-name {
+        height: 50px;
+        text-align: center;
+        line-height: 46px;
+        vertical-align: middle;
+        border-top: 2px solid rgb(206, 78, 19);
+        border-image-source: linear-gradient(rgb(238, 144, 144), rgb(206, 78, 19));
+        border-image-slice: 20;
+    }
+}
+
+.course-home .activity-personal {
+    margin: 9px;
+    padding: 9px 15px;
+    border-radius: 12px;
+    background-color: #fff;
+    color: #566375;
+    &::after {
+        position: absolute;
+        margin-top: -14px;
+        top: 6px;
+        bottom: 4px;
+        left: 20px;
+        right: 20px;
+        background: linear-gradient(to right, #ffdb11, #ff4e22);
+        content: '';
+        z-index: -1;
+        border-radius: 12px;
+        box-shadow: 0 9px 12px rgba(0, 0, 0, 0.1), 0 0 9px rgba(0, 0, 0, 0.1);
+    }
+    h5 {
+        font-weight: 700;
+    }
+    .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        background-position: center;
+        background-size: cover;
+        margin: auto;
+    }
+    .infomation {
+        text-align: center;
+        span {
+            display: block;
+            margin-top: 9px;
+            padding: 6px 9px;
+            background-color: #f2f7f9;
+            border-radius: 14px;
+        }
+        span.bio {
+            text-align: left;
+            font-style: italic;
+        }
+    }
+}
+
+/**
+Plan Lesson
+**/
+
+#info + #lesson-display{
+    background: #ff1022 !important;
+}
+
+.plan-lesson {
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    bottom:0;
+    background: #0f1022;
+    #nav-lesson.minimise{
+        width:50px;
+        #info{
+            display: none;
+            position: absolute;
+            bottom:0;
+            left:0;
+        }
+        .logo{
+            width:50px;
+            height: 50px;
+            margin:0;
+        }
+        h6,.title,#road{
+            display: none;
+        }
+        #nav-action{
+            padding:0;
+            span{
+                width:50px;
+                height: 50px;
+                margin:0;
+                padding:0;
+                border-radius:0;
+                background: rgba(255, 255, 255, 0.2);
+                color: #ccc;
+                display: block;
+                line-height: 50px;
+                font-size:1.25em;
+            }
+            #info{
+                float:none;
+            }
+            #nav-btn{
+                transform: scaleX(-1);
+                float:none;
+            }
+        }
+    }
+    #nav-lesson {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 300px;
+        color: #eee;
+        font-weight: 300;
+        background: #0f1022;
+        text-align: center;
+        // transition: 0.25s ease-in-out;
+        .logo {
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+            display: block;
+            margin: auto;
+            margin-bottom: 6px;
+            margin-top: 50px;
+        }
+        h6 {
+            margin: 0;
+            color: #ddd;
+        }
+        .title {
+            font-size: 18px;
+        }
+        #nav-action{
+            padding:6px 9px;
+            #info{
+                float:left;
+            }
+            #nav-btn{
+                float:right;
+            }
+            span{
+                display: block;
+                height:30px;
+                width: 30px;
+                line-height: 30px;
+                font-size:18px;
+                vertical-align: middle;
+                border-radius: 1000px;
+                color:#0f1022;
+                background:#eee;
+                cursor: pointer;
+            }
+        } 
+        #road {
+            text-align: left;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            top: 300px;
+            padding: 6px;
+            overflow: auto;
+            .unit-tilte {
+                font-weight: 600;
+                opacity: 0.7;
+                border-bottom: 1px solid #eee;
+            }
+        }
+        ul {
+            padding: 0 1em !important;
+            list-style: none;
+            li{
+                padding:6px 2px;
+            }
+            li::before {
+                content: "";
+                position:relative;
+                left: -10px;
+                top: -3px;
+                background-color: #f45c43;
+                border-radius:100px;
+                display:inline-block;
+                width:7px;
+                height:7px;
+            }
+        }
+    }
+    #lesson-display.expand{
+        left:50px;
+        #video {
+            height: calc(0.5625*(100vw - 50px));
+        }
+    }
+    #lesson-display {
+        transition: 0.25s ease-in-out;
+        position: fixed;
+        left: 300px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: #272a43;
+        overflow: auto;
+        #video {
+            max-height: 100%;
+            height: calc(0.5625*(100vw - 300px));
+        }
+        #comment-list {
+            position: relative;
+            padding: 6px 9px;
+            .comment-item {
+                padding: 6px 0; // background: #141236;
+            }
+            .comment-content {
+                // width: calc(100% - 54px);
+                width: fit-content;
+                margin-left: 54px;
+                border-radius: 20px;
+                background-color: #fff;
+                padding: 9px;
+            }
+        }
+        .comment-avt {
+            display: inline-block;
+            float: left;
+            height: 45px;
+            width: 45px;
+            border-radius: 100%;
+            background-color: #fff;
+            background-size: cover;
+            background-position: center;
+        }
+        #comment-input {
+            position: relative;
+            background: none;
+            height: 45px;
+            margin: 16px 0;
+            button {
+                position: absolute;
+                right: 9px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: block;
+                height: 45px;
+                width: 45px;
+                border-radius: 100%;
+                border: none;
+                outline: none;
+                box-shadow: -1px -1px 9px rgba(51, 68, 85, 0.3);
+                background-image: linear-gradient(#eb3349, #f45c43);
+                color: #fff;
+                transition: 0.25s;
+            }
+            button:hover {
+                box-shadow: 0px 0px 14px rgba(51, 68, 85, 0.7);
+            }
+            button.btn-cmt {
+                font-size: 24px;
+                background: #fff;
+                left: 9px;
+                color: #f45c43;
+            }
+            .input {
+                position: absolute;
+                right: 65px;
+                left: 59px;
+                height: 45px;
+            }
+            input {
+                width: 100%;
+                height: 100%;
+                padding: 9px 12px;
+                background: none;
+                border: none;
+                border-radius: 100px;
+                background: #fff;
+                box-shadow: -1px -1px 9px rgba(51, 68, 85, 0.3);
+            }
+        }
+    }
+}
+
+.modal-popup{
+    position: fixed;
+    padding: 9px 16px;
+    padding-top:20px;
+    width: 640px;
+    max-width: 95%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: #0f1022;
+    color:#fbfbfb;
+    box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.5),
+    1px 1px 7px rgba(51, 68, 85, 0.3);
+    border-radius:9px;
+    z-index: 20;
+    *{
+        font-weight: 400;
+    }
+    b{
+        font-weight: 700;
+    }
+    .close-btn{
+        font-weight: 900;
+        cursor: pointer;
+        float: right;
+    }
+}
