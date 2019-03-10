@@ -37,7 +37,7 @@ class Home extends Component {
             <Col lg="9" >
               <Row>
                 <Col lg="4" md="6">
-                  <Link to="/">
+                  <Link to="/plan-lesson/1">
                     <div className="course-item">
                       <div className="item-background" style={{ backgroundImage: "url(https://hourofcode.com/images/social-media/hoc-2018-creativity.png)" }}></div>
                       <div className="item-name">Khóa học Java</div>
