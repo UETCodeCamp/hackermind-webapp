@@ -1,5 +1,5 @@
 {
-  "name": "uetcamp",
+  "name": "hackermind-webapp",
   "version": "1.0",
   "private": false,
   "dependencies": {
@@ -14,7 +14,7 @@
     "react-scripts": "2.1.5",
     "reactstrap": "^7.1.0",
     "sass-loader": "^7.1.0",
-    "webpack": "^4.28.3"
+    "webpack": "4.28.3"
   },
   "scripts": {
     "start": "react-scripts start",
