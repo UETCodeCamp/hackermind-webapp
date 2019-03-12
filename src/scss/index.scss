@@ -10,9 +10,11 @@
     overflow: hidden;
     transition: 0.25s ease-in-out;
     &:hover {
+        transform: scale(1.05);
         box-shadow: 0 12px 19px rgba(0, 0, 0, 0.3), 0 0 9px rgba(0, 0, 0, 0.2);
-        background: #141236;
-        color: #fff;
+        background: #7e57c2;
+        color: #eee;
+        ;
     }
     .item-background {
         background-size: cover;
@@ -25,8 +27,7 @@
         text-align: center;
         line-height: 46px;
         vertical-align: middle;
-        border-top: 2px solid rgb(206, 78, 19);
-        border-image-source: linear-gradient(rgb(238, 144, 144), rgb(206, 78, 19));
+        border-top: 2px solid #7c43bd;
         border-image-slice: 20;
     }
 }
@@ -44,7 +45,8 @@
         bottom: 4px;
         left: 20px;
         right: 20px;
-        background: linear-gradient(to right, #ffdb11, #ff4e22);
+        background-color:#7c43bd;
+        background-image:linear-gradient(to bottom, #7c43bd, #bc477b);
         content: '';
         z-index: -1;
         border-radius: 12px;
@@ -204,7 +206,7 @@ Plan Lesson
                 position:relative;
                 left: -10px;
                 top: -3px;
-                background-color: #f45c43;
+                background-color: #4d2c91;
                 border-radius:100px;
                 display:inline-block;
                 width:7px;
@@ -273,7 +275,8 @@ Plan Lesson
                 border: none;
                 outline: none;
                 box-shadow: -1px -1px 9px rgba(51, 68, 85, 0.3);
-                background-image: linear-gradient(#eb3349, #f45c43);
+                background-color:#7c43bd;
+                background-image: linear-gradient(#7c43bd, #bc477b);
                 color: #fff;
                 transition: 0.25s;
             }
@@ -284,7 +287,7 @@ Plan Lesson
                 font-size: 24px;
                 background: #fff;
                 left: 9px;
-                color: #f45c43;
+                color: #7c43bd;
             }
             .input {
                 position: absolute;

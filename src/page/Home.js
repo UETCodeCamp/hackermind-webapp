@@ -21,17 +21,15 @@ class Home extends Component {
   render() {
     return (
       <div className="course-home">
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">UETCodeCamp</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Logout</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
+        <header>
+          <span id="appname">UET CodeCamp</span>
+          <div id="account">
+          <span class="icon">C</span>
+          <span class="name">Trần Mạnh Cường</span>
+          <Link to="/home/info"> <span class="logout">App Info</span></Link>
+         <Link to="/"> <span class="logout">Logout</span></Link>
+          </div>
+        </header>
         <div className="body-page">
           <Row>
             <Col lg="9" >
