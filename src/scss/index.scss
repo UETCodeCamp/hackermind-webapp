@@ -161,6 +161,20 @@ Plan Lesson
         .title {
             font-size: 18px;
         }
+        #player-btn {
+            display: block;
+            span {
+                height: 25px;
+                width: 25px;
+                border-radius: 1000px;
+                background: rgba(238, 238, 238, 0.9);
+                color: #0f1022;
+                line-height: 25px;
+                display: inline-block;
+                cursor: pointer;
+                margin: 6px;
+            }
+        }
         #nav-action {
             padding: 6px 9px;
             #info {
@@ -168,6 +182,9 @@ Plan Lesson
             }
             #nav-btn {
                 float: right;
+            }
+            #menu-bar {
+                display: none;
             }
             span {
                 display: block;
@@ -231,7 +248,7 @@ Plan Lesson
         background: #272a43;
         overflow: auto;
         #video {
-            max-height: 100%;
+            max-height: 100vh;
             height: calc(0.5625*(100vw - 300px));
         }
         #comment-list {
@@ -337,6 +354,27 @@ Plan Lesson
     }
 }
 
+@media only screen and (min-width: 768px) {
+    .plan-lesson {
+        #nav-lesson.activeMenu {
+            #player-btn {
+                position: absolute;
+                bottom: 50px;
+                span {
+                    display: block;
+                    height: 50px;
+                    width: 50px;
+                    line-height: 50px;
+                    border-radius: 0;
+                    background: rgba(255, 255, 255, 0.2);
+                    color: rgb(204, 204, 204);
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .plan-lesson {
         #nav-lesson,
@@ -357,62 +395,96 @@ Plan Lesson
                 margin: 0;
                 position: absolute;
             }
-            .title{
+            .title {
                 position: absolute;
-                top:25px;
+                top: 25px;
                 left: 50%;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%, -50%);
                 display: block;
             }
-            h6{
+            h6 {
                 display: none;
             }
-            #nav-action {
-                span{
+            #player-btn {
+                position: absolute;
+                bottom: 50px;
+                span {
+                    position: fixed;
+                    bottom: 0;
+                    height: 50px;
+                    width: 50px;
+                    line-height: 50px;
+                    border-radius: 0;
                     background: rgba(255, 255, 255, 0.2);
-                    border-radius:0;
+                    color: rgb(204, 204, 204);
+                    margin: 0;
+                    display: none;
+                }
+                span:nth-child(2) {
+                    right: 0px;
+                }
+            }
+            #nav-action {
+                span {
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 0;
                     height: 50px;
                 }
                 #info {
                     position: fixed;
                     bottom: 0;
                     display: none;
-                    width: 100%;
+                    left: 50px;
+                    right: 50px;
+                    width: auto;
+                    border-left: 1px solid rgba(255, 255, 255, 0.1);
+                    border-right: 1px solid rgba(255, 255, 255, 0.1);
                 }
                 #nav-btn {
                     display: none;
                 }
-                #menu-bar{
+                #menu-bar {
+                    display: block;
                     position: absolute;
-                    right:0;
-                    height:50px;
+                    right: 0;
+                    height: 50px;
                     width: 50px;
                     line-height: 50px;
                     vertical-align: middle;
-                    top:0;
-                    border-radius:0;
-                    color:#eee;
-                    background:none;
+                    top: 0;
+                    border-radius: 0;
+                    color: #eee;
+                    background: none;
+                    transition: 0.25s;
                 }
             }
         }
-        #nav-lesson.activeMenu{
-            bottom:0;
-            #nav-action{
-                #info{
+        #nav-lesson.activeMenu {
+            bottom: 0;
+            #player-btn {
+                span {
                     display: block;
                 }
             }
-            #road{
-                display:block;
-                top:50px;
-                bottom:50px;
-                border-top:1px solid rgba(255, 255, 255,0.1);
+            #nav-action {
+                #info {
+                    display: block;
+                }
+                #menu-bar {
+                    text-shadow: 0 0 3px rgb(0, 101, 184);
+                    transform: rotate(180deg);
+                }
+            }
+            #road {
+                display: block;
+                top: 50px;
+                bottom: 50px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
                 .unit-tilte {
                     display: block;
-                    border:none;
-                    background: rgba(255, 255, 255,0.1);
-                    padding:6px;
+                    border: none;
+                    background: rgba(255, 255, 255, 0.1);
+                    padding: 6px;
                 }
             }
         }
@@ -421,6 +493,7 @@ Plan Lesson
             left: 0 !important;
             top: 50px;
             #video {
+                max-height: 100vh;
                 height: calc(0.5625*(100vw)) !important;
             }
         }

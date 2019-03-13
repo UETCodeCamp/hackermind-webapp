@@ -26,7 +26,7 @@ class Home extends Component {
           <div id="account">
           <span class="icon">C</span>
           <span class="name">Trần Mạnh Cường</span>
-          <Link to="/home/info"> <span class="logout">App Info</span></Link>
+          <a href="mailto:iammaytinhdibo@gmail.com"> <span class="logout">Phản hồi</span></a>
          <Link to="/"> <span class="logout">Logout</span></Link>
           </div>
         </header>
