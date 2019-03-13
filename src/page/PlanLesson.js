@@ -27,7 +27,7 @@ class PlanLesson extends Component {
             show_modal:false
         }
     }
-    minimise = () => {
+    activeMenu = () => {
         this.setState(
             {
                 mini_nav: !this.state.mini_nav
@@ -41,10 +41,12 @@ class PlanLesson extends Component {
     render() {
         return (
             <div className="plan-lesson">
-                <div id="nav-lesson" className={this.state.mini_nav ? "minimise" : ""}>
+                <div id="nav-lesson" className={this.state.mini_nav ? "activeMenu" : ""}>
                     <div id="nav-action">
-                        <span onClick={this.minimise} id="nav-btn"><i className="fa fa-angle-left"></i></span>
+                        <span onClick={this.activeMenu} id="nav-btn"><i className="fa fa-angle-left"></i></span>
                         <span onClick={this.toggleModal} id="info"><i className="fa fa-file-alt"></i></span>
+                        <span onClick={this.activeMenu} id="menu-bar"><i class="fas fa-bars"></i></span>
+                        
                     </div>
                     <img className="logo" src="http://iconsetc.com/icons-watermarks/flat-square-white-on-pink/raphael/raphael_node-js/raphael_node-js_flat-square-white-on-pink_512x512.png" />
                     <h6>Just do it!</h6>

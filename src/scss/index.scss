@@ -45,8 +45,8 @@
         bottom: 4px;
         left: 20px;
         right: 20px;
-        background-color:#7c43bd;
-        background-image:linear-gradient(to bottom, #7c43bd, #bc477b);
+        background-color: #7c43bd;
+        background-image: linear-gradient(to bottom, #7c43bd, #bc477b);
         content: '';
         z-index: -1;
         border-radius: 12px;
@@ -83,53 +83,55 @@
 Plan Lesson
 **/
 
-#info + #lesson-display{
+#info+#lesson-display {
     background: #ff1022 !important;
 }
 
 .plan-lesson {
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     right: 0;
-    bottom:0;
+    bottom: 0;
     background: #0f1022;
-    #nav-lesson.minimise{
-        width:50px;
-        #info{
+    #nav-lesson.activeMenu {
+        width: 50px;
+        #info {
             display: none;
             position: absolute;
-            bottom:0;
-            left:0;
+            bottom: 0;
+            left: 0;
         }
-        .logo{
-            width:50px;
+        .logo {
+            width: 50px;
             height: 50px;
-            margin:0;
+            margin: 0;
         }
-        h6,.title,#road{
+        h6,
+        .title,
+        #road {
             display: none;
         }
-        #nav-action{
-            padding:0;
-            span{
-                width:50px;
+        #nav-action {
+            padding: 0;
+            span {
+                width: 50px;
                 height: 50px;
-                margin:0;
-                padding:0;
-                border-radius:0;
+                margin: 0;
+                padding: 0;
+                border-radius: 0;
                 background: rgba(255, 255, 255, 0.2);
                 color: #ccc;
                 display: block;
                 line-height: 50px;
-                font-size:1.25em;
+                font-size: 1.25em;
             }
-            #info{
-                float:none;
+            #info {
+                float: none;
             }
-            #nav-btn{
+            #nav-btn {
                 transform: scaleX(-1);
-                float:none;
+                float: none;
             }
         }
     }
@@ -142,8 +144,7 @@ Plan Lesson
         color: #eee;
         font-weight: 300;
         background: #0f1022;
-        text-align: center;
-        // transition: 0.25s ease-in-out;
+        text-align: center; // transition: 0.25s ease-in-out;
         .logo {
             width: 100px;
             height: 100px;
@@ -160,27 +161,27 @@ Plan Lesson
         .title {
             font-size: 18px;
         }
-        #nav-action{
-            padding:6px 9px;
-            #info{
-                float:left;
+        #nav-action {
+            padding: 6px 9px;
+            #info {
+                float: left;
             }
-            #nav-btn{
-                float:right;
+            #nav-btn {
+                float: right;
             }
-            span{
+            span {
                 display: block;
-                height:30px;
+                height: 30px;
                 width: 30px;
                 line-height: 30px;
-                font-size:18px;
+                font-size: 18px;
                 vertical-align: middle;
                 border-radius: 1000px;
-                color:#0f1022;
-                background:#eee;
+                color: #0f1022;
+                background: #eee;
                 cursor: pointer;
             }
-        } 
+        }
         #road {
             text-align: left;
             position: absolute;
@@ -198,24 +199,24 @@ Plan Lesson
         ul {
             padding: 0 1em !important;
             list-style: none;
-            li{
-                padding:6px 2px;
+            li {
+                padding: 6px 2px;
             }
             li::before {
                 content: "";
-                position:relative;
+                position: relative;
                 left: -10px;
                 top: -3px;
                 background-color: #4d2c91;
-                border-radius:100px;
-                display:inline-block;
-                width:7px;
-                height:7px;
+                border-radius: 100px;
+                display: inline-block;
+                width: 7px;
+                height: 7px;
             }
         }
     }
-    #lesson-display.expand{
-        left:50px;
+    #lesson-display.expand {
+        left: 50px;
         #video {
             height: calc(0.5625*(100vw - 50px));
         }
@@ -275,7 +276,7 @@ Plan Lesson
                 border: none;
                 outline: none;
                 box-shadow: -1px -1px 9px rgba(51, 68, 85, 0.3);
-                background-color:#7c43bd;
+                background-color: #7c43bd;
                 background-image: linear-gradient(#7c43bd, #bc477b);
                 color: #fff;
                 transition: 0.25s;
@@ -309,30 +310,119 @@ Plan Lesson
     }
 }
 
-.modal-popup{
+.modal-popup {
     position: fixed;
     padding: 9px 16px;
-    padding-top:20px;
+    padding-top: 20px;
     width: 640px;
     max-width: 95%;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background: #0f1022;
-    color:#fbfbfb;
-    box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.5),
-    1px 1px 7px rgba(51, 68, 85, 0.3);
-    border-radius:9px;
+    color: #fbfbfb;
+    box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.5), 1px 1px 7px rgba(51, 68, 85, 0.3);
+    border-radius: 9px;
     z-index: 20;
-    *{
+    * {
         font-weight: 400;
     }
-    b{
+    b {
         font-weight: 700;
     }
-    .close-btn{
+    .close-btn {
         font-weight: 900;
         cursor: pointer;
         float: right;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .plan-lesson {
+        #nav-lesson,
+        #nav-lesson.activeMenu {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: calc(100% - 50px);
+            width: auto;
+            z-index: 2;
+            overflow: hidden;
+            transition: 0.25s;
+            .logo {
+                left: 0;
+                top: 0;
+                height: 50px;
+                width: 50px;
+                margin: 0;
+                position: absolute;
+            }
+            .title{
+                position: absolute;
+                top:25px;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                display: block;
+            }
+            h6{
+                display: none;
+            }
+            #nav-action {
+                span{
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius:0;
+                    height: 50px;
+                }
+                #info {
+                    position: fixed;
+                    bottom: 0;
+                    display: none;
+                    width: 100%;
+                }
+                #nav-btn {
+                    display: none;
+                }
+                #menu-bar{
+                    position: absolute;
+                    right:0;
+                    height:50px;
+                    width: 50px;
+                    line-height: 50px;
+                    vertical-align: middle;
+                    top:0;
+                    border-radius:0;
+                    color:#eee;
+                    background:none;
+                }
+            }
+        }
+        #nav-lesson.activeMenu{
+            bottom:0;
+            #nav-action{
+                #info{
+                    display: block;
+                }
+            }
+            #road{
+                display:block;
+                top:50px;
+                bottom:50px;
+                border-top:1px solid rgba(255, 255, 255,0.1);
+                .unit-tilte {
+                    display: block;
+                    border:none;
+                    background: rgba(255, 255, 255,0.1);
+                    padding:6px;
+                }
+            }
+        }
+        #lesson-display,
+        #nav-lesson.expand {
+            left: 0 !important;
+            top: 50px;
+            #video {
+                height: calc(0.5625*(100vw)) !important;
+            }
+        }
     }
 }
