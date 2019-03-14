@@ -513,6 +513,7 @@ Plan Lesson
 
 @keyframes fade {
     from {
+        display: block;
         opacity: 0;
     }
     to {
@@ -520,17 +521,46 @@ Plan Lesson
     }
 }
 
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: block;
+    }
+}
+
+// #team-page.fadeOut{
+//     display:block;
+// }
+
+#team-page.fadeOut{
+    visibility: hidden;
+  opacity: 0;
+  #team-modal{
+    max-height: 0%;
+  }
+}
+#team-page.fadeIn{
+    visibility: visible;
+  opacity: 1;
+  #team-modal{
+    max-height: 90%;
+  }
+}
+
 #team-page {
-    animation: fade 0.5s ease-in;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 100;
+    visibility: hidden;
+    transition: 0.25s;
     background: rgba(0, 0, 0, 0.3);
     #team-modal {
-        animation: open-popup 0.5s ease-in;
         border-radius: 6px;
         background: #fff;
         overflow: hidden;
@@ -541,6 +571,8 @@ Plan Lesson
         transform: translate(-50%, -50%);
         top: 50%;
         left: 50%;
+        max-height: 0;
+        transition: 0.25s;
     }
     .table {
         width: 100%;
@@ -565,4 +597,16 @@ Plan Lesson
             }
         }
     }
+}
+.modal-close{
+    float: right;
+    height: 100%;
+    line-height: 1.5;
+    display: block;
+    opacity: 0.5;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.modal-close:hover{
+    opacity: 1;
 }

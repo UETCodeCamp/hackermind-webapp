@@ -16,8 +16,20 @@ import {
   DropdownItem,
   Container, Row, Col
 } from 'reactstrap';
+import TeamModal from '../components/TeamModal';
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      team_modal: false
+    }
+  }
+  teamModal = () => {
+    this.setState({
+      team_modal: !this.state.team_modal
+    })
+  }
   render() {
     return (
       <div className="course-home">
@@ -27,94 +39,13 @@ class Home extends Component {
             <span class="icon">C</span>
             <span class="name">Trần Mạnh Cường</span>
             <a href="mailto:iammaytinhdibo@gmail.com"> <span class="logout">Phản hồi</span></a>
-            <span class="name">Teammate</span>
+            <span onClick={this.teamModal} class="name">Teammate</span>
             <Link to="/"> <span class="logout">Logout</span></Link>
           </div>
         </header>
+      
+          <TeamModal closeTeamModal={this.teamModal} display={this.state.team_modal} /> 
 
-        <div id="team-page">
-          <div id="team-modal">
-            <div className="modal-header">
-              Đồng hành cùng tôi
-              <i class="fas fa-times-circle close"></i>
-            </div>
-            <div className="table">
-            <table className="list-user">
-              <tr>
-                <th>Tên</th>
-                <th>Tài khoản</th>
-              </tr>
-              <tr className="leader">
-                <td>Nguyễn Tiến Minh</td>
-                <td>minhnt</td>
-              </tr>
-              <tr>
-                <td>Trần Mạnh Cường</td>
-                <td>maytinhdibo</td>
-              </tr>
-              <tr>
-                <td>Trần Minh Quý</td>
-                <td>quytm</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr> <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-              <tr>
-                <td>Đỗ Văn Sĩ</td>
-                <td>sido</td>
-              </tr>
-            </table>
-            </div>
-          </div>
-        </div>
 
         <div className="body-page">
           <Row>
