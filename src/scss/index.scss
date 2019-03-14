@@ -12,7 +12,7 @@
     &:hover {
         transform: scale(1.05);
         box-shadow: 0 12px 19px rgba(0, 0, 0, 0.3), 0 0 9px rgba(0, 0, 0, 0.2);
-        background: #7e57c2;
+        background: #3f51b5;
         color: #eee;
         ;
     }
@@ -27,7 +27,7 @@
         text-align: center;
         line-height: 46px;
         vertical-align: middle;
-        border-top: 2px solid #7c43bd;
+        border-top: 2px solid #3f51b5;
         border-image-slice: 20;
     }
 }
@@ -45,8 +45,9 @@
         bottom: 4px;
         left: 20px;
         right: 20px;
-        background-color: #7c43bd;
-        background-image: linear-gradient(to bottom, #7c43bd, #bc477b);
+        background-color: #3f51b5;
+        background-image: linear-gradient(to top, #7c43bd, #3f51b5);
+        ;
         content: '';
         z-index: -1;
         border-radius: 12px;
@@ -224,7 +225,7 @@ Plan Lesson
                 position: relative;
                 left: -10px;
                 top: -3px;
-                background-color: #4d2c91;
+                background-color: #3f51b5;
                 border-radius: 100px;
                 display: inline-block;
                 width: 7px;
@@ -293,8 +294,8 @@ Plan Lesson
                 border: none;
                 outline: none;
                 box-shadow: -1px -1px 9px rgba(51, 68, 85, 0.3);
-                background-color: #7c43bd;
-                background-image: linear-gradient(#7c43bd, #bc477b);
+                background-color: #3f51b5;
+                background-image: linear-gradient(#7c43bd, #3f51b5);
                 color: #fff;
                 transition: 0.25s;
             }
@@ -305,7 +306,7 @@ Plan Lesson
                 font-size: 24px;
                 background: #fff;
                 left: 9px;
-                color: #7c43bd;
+                color: #3f51b5;
             }
             .input {
                 position: absolute;
@@ -410,7 +411,7 @@ Plan Lesson
                 bottom: 50px;
                 span {
                     position: fixed;
-                    bottom: 0;
+                    bottom: 100vh;
                     height: 50px;
                     width: 50px;
                     line-height: 50px;
@@ -418,7 +419,7 @@ Plan Lesson
                     background: rgba(255, 255, 255, 0.2);
                     color: rgb(204, 204, 204);
                     margin: 0;
-                    display: none;
+                    transition: 0.25s;
                 }
                 span:nth-child(2) {
                     right: 0px;
@@ -432,13 +433,13 @@ Plan Lesson
                 }
                 #info {
                     position: fixed;
-                    bottom: 0;
-                    display: none;
+                    bottom: 100vh;
                     left: 50px;
                     right: 50px;
                     width: auto;
                     border-left: 1px solid rgba(255, 255, 255, 0.1);
                     border-right: 1px solid rgba(255, 255, 255, 0.1);
+                    transition: 0.25s;
                 }
                 #nav-btn {
                     display: none;
@@ -463,12 +464,13 @@ Plan Lesson
             bottom: 0;
             #player-btn {
                 span {
-                    display: block;
+                    bottom: 0;
+                    opacity: 1;
                 }
             }
             #nav-action {
                 #info {
-                    display: block;
+                    bottom: 0;
                 }
                 #menu-bar {
                     text-shadow: 0 0 3px rgb(0, 101, 184);
@@ -495,6 +497,71 @@ Plan Lesson
             #video {
                 max-height: 100vh;
                 height: calc(0.5625*(100vw)) !important;
+            }
+        }
+    }
+}
+
+@keyframes open-popup {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 100%;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#team-page {
+    animation: fade 0.5s ease-in;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.3);
+    #team-modal {
+        animation: open-popup 0.5s ease-in;
+        border-radius: 6px;
+        background: #fff;
+        overflow: hidden;
+        position: fixed;
+        width: 500px;
+        max-width: 90%;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+    }
+    .table {
+        width: 100%;
+        max-height: 70vh ;
+        margin: 0;
+        overflow: auto;
+        table.list-user {
+            width: 100%;
+            height: 100%;
+            tr+tr {
+                border-top: 1px solid #eee;
+            }
+            th {
+                background: #eee;
+            }
+            tr.leader {
+                color: #3f51b5;
+            }
+            td,
+            th {
+                padding: 6px 16px;
             }
         }
     }

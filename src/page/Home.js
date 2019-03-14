@@ -24,12 +24,98 @@ class Home extends Component {
         <header>
           <span id="appname">UET CodeCamp</span>
           <div id="account">
-          <span class="icon">C</span>
-          <span class="name">Trần Mạnh Cường</span>
-          <a href="mailto:iammaytinhdibo@gmail.com"> <span class="logout">Phản hồi</span></a>
-         <Link to="/"> <span class="logout">Logout</span></Link>
+            <span class="icon">C</span>
+            <span class="name">Trần Mạnh Cường</span>
+            <a href="mailto:iammaytinhdibo@gmail.com"> <span class="logout">Phản hồi</span></a>
+            <span class="name">Teammate</span>
+            <Link to="/"> <span class="logout">Logout</span></Link>
           </div>
         </header>
+
+        <div id="team-page">
+          <div id="team-modal">
+            <div className="modal-header">
+              Đồng hành cùng tôi
+              <i class="fas fa-times-circle close"></i>
+            </div>
+            <div className="table">
+            <table className="list-user">
+              <tr>
+                <th>Tên</th>
+                <th>Tài khoản</th>
+              </tr>
+              <tr className="leader">
+                <td>Nguyễn Tiến Minh</td>
+                <td>minhnt</td>
+              </tr>
+              <tr>
+                <td>Trần Mạnh Cường</td>
+                <td>maytinhdibo</td>
+              </tr>
+              <tr>
+                <td>Trần Minh Quý</td>
+                <td>quytm</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr> <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+              <tr>
+                <td>Đỗ Văn Sĩ</td>
+                <td>sido</td>
+              </tr>
+            </table>
+            </div>
+          </div>
+        </div>
+
         <div className="body-page">
           <Row>
             <Col lg="9" >
@@ -62,16 +148,16 @@ class Home extends Component {
             </Col>
             <Col lg="3" sm="12">
               <div className="activity-personal">
-               <h5>Cá nhân</h5> 
-               <div className="cover-img"></div>
-              <div style={{ backgroundImage: "url(https://vtv1.mediacdn.vn/thumb_w/650/2019/3/4/meng-wanzhou-720-huawei-cfo-15516643489751859586803-1551674039895410451295.jpg)" }} 
-              className="avatar"></div>
+                <h5>Cá nhân</h5>
+                <div className="cover-img"></div>
+                <div style={{ backgroundImage: "url(https://vtv1.mediacdn.vn/thumb_w/650/2019/3/4/meng-wanzhou-720-huawei-cfo-15516643489751859586803-1551674039895410451295.jpg)" }}
+                  className="avatar"></div>
                 <div className="infomation">
-                <span className="name">Nguyễn Thị Dô Dép</span>
-                <span className="name">Java Plan</span>
-                <span className="name">150 points</span>
-                <span>Joined on Oct 2018</span>
-                <span className="bio">Bio: Không có gì là không thể, chỉ có thể bạn không làm được</span>
+                  <span className="name">Nguyễn Thị Dô Dép</span>
+                  <span className="name">Java Plan</span>
+                  <span className="name">150 points</span>
+                  <span>Joined on Oct 2018</span>
+                  <span className="bio">Bio: Không có gì là không thể, chỉ có thể bạn không làm được</span>
                 </div>
               </div>
             </Col>
