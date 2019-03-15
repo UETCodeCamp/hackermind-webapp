@@ -9,6 +9,7 @@
     border: none;
     overflow: hidden;
     transition: 0.25s ease-in-out;
+    user-select: none;
     &:hover {
         transform: scale(1.05);
         box-shadow: 0 12px 19px rgba(0, 0, 0, 0.3), 0 0 9px rgba(0, 0, 0, 0.2);
@@ -534,20 +535,20 @@ Plan Lesson
 // #team-page.fadeOut{
 //     display:block;
 // }
-
-#team-page.fadeOut{
+#team-page.fadeOut {
     visibility: hidden;
-  opacity: 0;
-  #team-modal{
-    max-height: 0%;
-  }
+    opacity: 0;
+    #team-modal {
+        max-height: 0%;
+    }
 }
-#team-page.fadeIn{
+
+#team-page.fadeIn {
     visibility: visible;
-  opacity: 1;
-  #team-modal{
-    max-height: 90%;
-  }
+    opacity: 1;
+    #team-modal {
+        max-height: 90%;
+    }
 }
 
 #team-page {
@@ -576,7 +577,7 @@ Plan Lesson
     }
     .table {
         width: 100%;
-        max-height: 70vh ;
+        max-height: 70vh;
         margin: 0;
         overflow: auto;
         table.list-user {
@@ -598,7 +599,8 @@ Plan Lesson
         }
     }
 }
-.modal-close{
+
+.modal-close {
     float: right;
     height: 100%;
     line-height: 1.5;
@@ -607,6 +609,19 @@ Plan Lesson
     transition: 0.25s;
     cursor: pointer;
 }
-.modal-close:hover{
+
+.modal-close:hover {
     opacity: 1;
+}
+
+.body-page {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    .row {
+        margin-bottom: 20px;
+    }
 }

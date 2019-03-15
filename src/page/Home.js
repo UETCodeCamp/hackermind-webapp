@@ -77,6 +77,7 @@ class Home extends Component {
                 </Col>
               </Row>
             </Col>
+
             <Col lg="3" sm="12">
               <div className="activity-personal">
                 <h5>Cá nhân</h5>

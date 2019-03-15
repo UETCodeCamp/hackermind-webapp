@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
-import { BrowserRouter } from "react-router-dom"
+import { Router } from "react-router-dom"
 import registerServiceWorker from './registerServiceWorker';
+import { createBrowserHistory, createHashHistory } from 'history'
+
+function configureHistory() {
+  return window.matchMedia('(display-mode: standalone)').matches
+    ? createHashHistory()
+    : createBrowserHistory()
+}
+const history = configureHistory()
 
 ReactDOM.render(
-    <BrowserRouter>
+    <Router history={history}>
         <App />
-    </BrowserRouter>
+    </Router>
     , document.getElementById('root'));
-registerServiceWorker();
+registerServiceWorker.register();
