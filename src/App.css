@@ -307,7 +307,7 @@ header #appname img {
 }
 
 .popup-content a {
-  color: #566375;
+  color: var(--primary-color);
 }
 
 .popup-content li, .popup-content h2 {

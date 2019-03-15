@@ -51,7 +51,7 @@
     transition:0.25s;
   }
   #login-form button:hover{
-    background: #3f51b5;
+    background: var(--primary-color);
     color: #eee;
   }
   #login-form input{
@@ -74,4 +74,10 @@
   }
   .back:hover{
     background: rgba(80, 79, 79, 0.2);
+  }
+  @media only screen and (max-width: 768px) {
+    #login-form button{
+      background: var(--primary-color);
+      color: #eee;
+    }
   }

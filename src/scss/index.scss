@@ -1,3 +1,7 @@
+:root{
+    --primary-color:#3f51b5;
+    --second-color:#7c43bd;
+}
 .course-home .course-item {
     position: relative;
     margin: 9px;
@@ -13,7 +17,7 @@
     &:hover {
         transform: scale(1.05);
         box-shadow: 0 12px 19px rgba(0, 0, 0, 0.3), 0 0 9px rgba(0, 0, 0, 0.2);
-        background: #3f51b5;
+        background: var(--primary-color);
         color: #eee;
         ;
     }
@@ -28,7 +32,7 @@
         text-align: center;
         line-height: 46px;
         vertical-align: middle;
-        border-top: 2px solid #3f51b5;
+        border-top: 2px solid var(--primary-color);
         border-image-slice: 20;
     }
 }
@@ -46,8 +50,8 @@
         bottom: 4px;
         left: 20px;
         right: 20px;
-        background-color: #3f51b5;
-        background-image: linear-gradient(to top, #7c43bd, #3f51b5);
+        background-color: var(--primary-color);
+        background-image: linear-gradient(to top, var(--second-color), var(--primary-color));
         ;
         content: '';
         z-index: -1;
@@ -223,7 +227,7 @@ Plan Lesson
                 position: relative;
                 left: -10px;
                 top: -3px;
-                background-color: #3f51b5;
+                background-color: var(--primary-color);
                 border-radius: 100px;
                 display: inline-block;
                 width: 7px;
@@ -292,8 +296,8 @@ Plan Lesson
                 border: none;
                 outline: none;
                 box-shadow: -1px -1px 9px rgba(51, 68, 85, 0.3);
-                background-color: #3f51b5;
-                background-image: linear-gradient(#7c43bd, #3f51b5);
+                background-color: var(--primary-color);
+                background-image: linear-gradient(var(--second-color), var(--primary-color));
                 color: #fff;
                 transition: 0.25s;
             }
@@ -304,7 +308,7 @@ Plan Lesson
                 font-size: 24px;
                 background: #fff;
                 left: 9px;
-                color: #3f51b5;
+                color: var(--primary-color);
             }
             .input {
                 position: absolute;
@@ -600,7 +604,7 @@ Plan Lesson
                 background: #eee;
             }
             tr.leader {
-                color: #3f51b5;
+                color: var(--primary-color);
             }
             td,
             th {

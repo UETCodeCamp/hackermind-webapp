@@ -24,6 +24,10 @@ class Home extends Component {
     super(props);
     this.state = {
       team_modal: false,
+      account:{
+        name:"Nguyễn Thị Dô Dép",
+        plan:"Java Team"
+      },
       listCourse: [{
         id: 1,
         name:"Khóa học Java",
@@ -85,8 +89,8 @@ class Home extends Component {
                 <div style={{ backgroundImage: "url(https://vtv1.mediacdn.vn/thumb_w/650/2019/3/4/meng-wanzhou-720-huawei-cfo-15516643489751859586803-1551674039895410451295.jpg)" }}
                   className="avatar"></div>
                 <div className="infomation">
-                  <span className="name">Nguyễn Thị Dô Dép</span>
-                  <span className="name">Java Plan</span>
+                  <span className="name">{this.state.account.name}</span>
+                  <span className="name">{this.state.account.plan}</span>
                   <span className="name">150 points</span>
                   <span>Joined on Oct 2018</span>
                   <span className="bio">Bio: Không có gì là không thể, chỉ có thể bạn không làm được</span>
