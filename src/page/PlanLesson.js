@@ -44,7 +44,7 @@ class PlanLesson extends Component {
                 <div id="nav-lesson" className={this.state.mini_nav ? "activeMenu" : ""}>
                     <div id="nav-action">
                         <span onClick={this.activeMenu} id="nav-btn"><i className="fa fa-angle-left"></i></span>
-                        <span onClick={this.toggleModal} id="info"><i className="fa fa-file-alt"></i></span>
+                      <Link to="/home-course"><span onClick={this.toggleModal} id="home"><i class="fas fa-home"></i></span></Link>  
                         <span onClick={this.activeMenu} id="menu-bar"><i class="fas fa-bars"></i></span>
 
                     </div>
@@ -53,6 +53,7 @@ class PlanLesson extends Component {
                     <span className="title">Java Plan for newbie</span>
                     <div id="player-btn">
                     <span><i class="fas fa-step-backward"></i></span>
+                    <span onClick={this.toggleModal} id="info"><i className="fa fa-file-alt"></i></span>
                     <span><i class="fas fa-step-forward"></i></span>
                     </div>
                     

@@ -85,7 +85,7 @@
 Plan Lesson
 **/
 
-#info+#lesson-display {
+#home+#lesson-display {
     background: #ff1022 !important;
 }
 
@@ -98,11 +98,8 @@ Plan Lesson
     background: #0f1022;
     #nav-lesson.activeMenu {
         width: 50px;
-        #info {
+        #home {
             display: none;
-            position: absolute;
-            bottom: 0;
-            left: 0;
         }
         .logo {
             width: 50px;
@@ -126,12 +123,12 @@ Plan Lesson
                 color: #ccc;
                 display: block;
                 line-height: 50px;
-                font-size: 1.25em;
             }
-            #info {
+            #home {
                 float: none;
             }
             #nav-btn {
+                font-size: 1.25em;
                 transform: scaleX(-1);
                 float: none;
             }
@@ -179,11 +176,12 @@ Plan Lesson
         }
         #nav-action {
             padding: 6px 9px;
-            #info {
+            #home {
                 float: left;
             }
             #nav-btn {
                 float: right;
+                font-size: 18px;
             }
             #menu-bar {
                 display: none;
@@ -193,7 +191,6 @@ Plan Lesson
                 height: 30px;
                 width: 30px;
                 line-height: 30px;
-                font-size: 18px;
                 vertical-align: middle;
                 border-radius: 1000px;
                 color: #0f1022;
@@ -361,7 +358,7 @@ Plan Lesson
         #nav-lesson.activeMenu {
             #player-btn {
                 position: absolute;
-                bottom: 50px;
+                bottom: 0px;
                 span {
                     display: block;
                     height: 50px;
@@ -371,6 +368,9 @@ Plan Lesson
                     background: rgba(255, 255, 255, 0.2);
                     color: rgb(204, 204, 204);
                     margin: 0;
+                }
+                #info {
+                    // float:right;
                 }
             }
         }
@@ -396,6 +396,7 @@ Plan Lesson
                 width: 50px;
                 margin: 0;
                 position: absolute;
+                display: block;
             }
             .title {
                 position: absolute;
@@ -422,7 +423,15 @@ Plan Lesson
                     margin: 0;
                     transition: 0.25s;
                 }
-                span:nth-child(2) {
+                #info {
+                    position: fixed;
+                    left: 50px;
+                    right: 50px;
+                    width: auto;
+                    border-left: 1px solid rgba(255, 255, 255, 0.1);
+                    border-right: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                span:nth-child(3) {
                     right: 0px;
                 }
             }
@@ -432,15 +441,13 @@ Plan Lesson
                     border-radius: 0;
                     height: 50px;
                 }
-                #info {
+                #home {
                     position: fixed;
-                    bottom: 100vh;
-                    left: 50px;
-                    right: 50px;
-                    width: auto;
-                    border-left: 1px solid rgba(255, 255, 255, 0.1);
-                    border-right: 1px solid rgba(255, 255, 255, 0.1);
-                    transition: 0.25s;
+                    top: 0;
+                    left: 0;
+                    height: 50px;
+                    width: 50px;
+                    display: none;
                 }
                 #nav-btn {
                     display: none;
@@ -463,6 +470,9 @@ Plan Lesson
         }
         #nav-lesson.activeMenu {
             bottom: 0;
+            .logo {
+                display: none;
+            }
             #player-btn {
                 span {
                     bottom: 0;
@@ -470,12 +480,12 @@ Plan Lesson
                 }
             }
             #nav-action {
-                #info {
-                    bottom: 0;
+                #home {
+                    display: block;
                 }
                 #menu-bar {
                     text-shadow: 0 0 3px rgb(0, 101, 184);
-                    transform: rotate(180deg);
+                    transform: rotate(180deg) scale(1.1);
                 }
             }
             #road {

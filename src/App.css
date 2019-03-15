@@ -21,11 +21,19 @@ header {
 a {
   text-decoration: none;
 }
-nav{
- box-shadow: -2px -1px 3px #000;
+
+nav {
+  box-shadow: -2px -1px 3px #000;
 }
+
 header #appname {
   font-size: 18px;
+}
+
+header #appname img {
+  margin-right: 9px;
+  height: 40px;
+  padding:3px;
 }
 
 #header {
@@ -331,10 +339,6 @@ header #appname {
   padding: 22px 16px;
 }
 
-
-a{
+a {
   text-decoration: none !important;
 }
-
-
-

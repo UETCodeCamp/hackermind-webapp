@@ -34,7 +34,9 @@ class Home extends Component {
     return (
       <div className="course-home">
         <header>
-          <span id="appname">UET CodeCamp</span>
+          <span id="appname">
+          <img src="img/logo.png"/>
+          Hackermind</span>
           <div id="account">
             <span class="icon">C</span>
             <span class="name">Trần Mạnh Cường</span>
