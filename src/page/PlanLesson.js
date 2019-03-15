@@ -24,7 +24,8 @@ class PlanLesson extends Component {
         super(props);
         this.state = {
             mini_nav: false,
-            show_modal: false
+            show_modal: false,
+            videoID: "9XFUoBD6W8c"
         }
     }
     activeMenu = () => {
@@ -82,7 +83,7 @@ class PlanLesson extends Component {
                     </div>
                 </div>
                 <div id="lesson-display" className={this.state.mini_nav ? "expand" : ""}>
-                    <VideoPlayer />
+                    <VideoPlayer id={this.state.videoID}/>
                 </div>
                 <div style={{ display: this.state.show_modal ? "block" : "none" }} className="modal-popup">
                     <i onClick={this.toggleModal} class="fas fa-times-circle close-btn"></i>
