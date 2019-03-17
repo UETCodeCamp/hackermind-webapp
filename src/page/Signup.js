@@ -45,6 +45,7 @@ class Signup extends Component {
                    <Link to="/"><div class="back">&lsaquo;</div>	</Link>
                         <img src="img/logo.png" />
                         <input id="name" placeholder="@yourname" />
+                        <input id="email" placeholder="@yourusername" />
                         <input id="email" placeholder="@youremail" />
                         <input className="signup-password" style={{marginRight:"1%"}} id="password" placeholder="@password" type="password" />
                         <input className="signup-password" id="repassword" placeholder="@re-password" id="repassword" type="password" />

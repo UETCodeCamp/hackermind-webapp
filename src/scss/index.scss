@@ -1,7 +1,8 @@
-:root{
-    --primary-color:#3f51b5;
-    --second-color:#7c43bd;
+:root {
+    --primary-color: #3f51b5;
+    --second-color: #7c43bd;
 }
+
 .course-home .course-item {
     position: relative;
     margin: 9px;
@@ -207,7 +208,7 @@ Plan Lesson
             position: absolute;
             width: 100%;
             bottom: 0;
-            top: 300px;
+            top: 260px;
             padding: 6px;
             overflow: auto;
             .unit-tilte {
@@ -400,7 +401,7 @@ Plan Lesson
                 width: 50px;
                 margin: 0;
                 position: absolute;
-                display: block;
+                display: none;
             }
             .title {
                 position: absolute;
@@ -451,7 +452,9 @@ Plan Lesson
                     left: 0;
                     height: 50px;
                     width: 50px;
-                    display: none;
+                    display: block;
+                    line-height: 50px;
+                    color: #fff;
                 }
                 #nav-btn {
                     display: none;
@@ -475,7 +478,7 @@ Plan Lesson
         #nav-lesson.activeMenu {
             bottom: 0;
             .logo {
-                display: none;
+                display: block;
             }
             #player-btn {
                 span {
@@ -485,7 +488,7 @@ Plan Lesson
             }
             #nav-action {
                 #home {
-                    display: block;
+                    display: none;
                 }
                 #menu-bar {
                     text-shadow: 0 0 3px rgb(0, 101, 184);

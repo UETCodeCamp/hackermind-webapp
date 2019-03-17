@@ -1,0 +1,14 @@
+.m-btn{
+    padding:9px 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.7);
+    border:none;
+    border-radius: 3px;
+    margin:6px 0;
+    transition:0.25s;
+}
+.m-btn:hover{
+    color:#eee;
+    background: var(--primary-color);
+}

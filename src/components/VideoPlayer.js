@@ -36,30 +36,6 @@ class VideoPlayer extends Component {
                 </div>
                 </div>
             </div>
-            <ul className="listcheck">
-                <p>Học Javascript để làm gì?</p>
-                <li>
-                    <input type="radio" id="f-option" name="selector" />
-                    <label for="f-option">Để lập trình winform</label>
-                    <div class="check"></div>
-                </li>
-                <li>
-                    <input type="radio" id="f-option2" name="selector" />
-                    <label for="f-option2">Để làm web</label>
-                    <div class="check"></div>
-                </li>
-                <li>
-                    <input type="radio" id="f-option3" name="selector" />
-                    <label for="f-option3">Để lập trình app mobile</label>
-                    <div class="check"></div>
-                </li>
-                <li>
-                    <input type="radio" id="f-option4" name="selector" />
-                    <label for="f-option4">Ví dụ tạm đã</label>
-                    <div class="check"></div>
-                </li>
-
-            </ul>
 </div>
         );
     }

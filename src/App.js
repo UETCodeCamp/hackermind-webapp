@@ -5,6 +5,7 @@ import Login from "./page/Login"
 import Signup from "./page/Signup"
 import PlanLesson from "./page/PlanLesson"
 import './scss/index.scss';
+import './scss/theme.scss';
 
 class App extends Component {
   render(){
@@ -12,7 +13,7 @@ class App extends Component {
       <div>
       <Switch>
         <Route path="/home-course" component={Home}/>
-        <Route path="/plan-lesson/:id/" component={PlanLesson}/>
+        <Route path="/plan-lesson/:id_plan/:id" component={PlanLesson}/>
         <Route path="/" exact component={Login}/>
         <Route path="/signup" component={Signup}/>
         </Switch>
