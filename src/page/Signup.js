@@ -14,18 +14,19 @@ class Signup extends Component {
     signup=()=>{
         console.log(this.state);
         if(document.getElementById("password").value!=document.getElementById("repassword").value){
-            alertText("Two password incorrect!",true)
+            alertText("Mật khẩu không khớp!",true)
         }else
-        alertText("Sending data....")
+        alertText("Đang gửi dữ liệu....")
         register({
             email: document.getElementById("email").value,
+            user_name: document.getElementById("username").value,
             password: document.getElementById("password").value,
             name: document.getElementById("name").value
         }).then(
             object =>{
                 console.log(object);
                 if(!object.success){
-                    alertText(object.message,true);
+                    alertText(object.reason,true);
                 }else{
                     alertText("Done!",true);
                     this.setState({
@@ -45,7 +46,7 @@ class Signup extends Component {
                    <Link to="/"><div class="back">&lsaquo;</div>	</Link>
                         <img src="img/logo.png" />
                         <input id="name" placeholder="@yourname" />
-                        <input id="email" placeholder="@yourusername" />
+                        <input type="email" id="username" placeholder="@yourusername" />
                         <input id="email" placeholder="@youremail" />
                         <input className="signup-password" style={{marginRight:"1%"}} id="password" placeholder="@password" type="password" />
                         <input className="signup-password" id="repassword" placeholder="@re-password" id="repassword" type="password" />

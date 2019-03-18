@@ -27,11 +27,14 @@ class PlanLesson extends Component {
             mini_nav: localStorage.layout == "compact" && window.innerWidth > 768,
             show_modal: false,
             lesson: {
-                type: "video",
+                type: "quiz",
                 videoID: "9XFUoBD6W8c"
             }
 
         }
+    }
+    componentDidUpdate(){
+        console.log("update");
     }
     activeMenu = () => {
         this.setState(
@@ -55,7 +58,7 @@ class PlanLesson extends Component {
                 <div id="nav-lesson" className={this.state.mini_nav ? "activeMenu" : ""}>
                     <div id="nav-action">
                         <span onClick={this.activeMenu} id="nav-btn"><i className="fa fa-angle-left"></i></span>
-                        <Link to="/home-course"><span onClick={this.toggleModal} id="home"><i class="fas fa-home"></i></span></Link>
+                        <Link to="/home-course"><span onClick={this.toggleModal} id="home"><i className="fas fa-home"></i></span></Link>
                         <span onClick={this.activeMenu} id="menu-bar"><i class="fas fa-bars"></i></span>
 
                     </div>
@@ -72,9 +75,9 @@ class PlanLesson extends Component {
                     <div id="road">
                         <span className="unit-tilte">UNIT 1: What is Javascript</span>
                         <ul className="unit-item">
-                            <li>Làm quen với JS</li>
-                            <li>Viết chương trình đầu tiên</li>
-                            <li>Nodejs là gì</li>
+                         <Link to="0"> <li>Làm quen với JS</li></Link>  
+                         <Link to="1"> <li>Viết chương trình đầu tiên</li></Link>  
+                         <Link to="2">  <li>Quiz: Nodejs là gì</li></Link>  
                         </ul>
 
                         <span className="unit-tilte">PRACTICE 1: First program</span>
