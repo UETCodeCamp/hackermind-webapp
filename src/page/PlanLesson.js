@@ -27,14 +27,17 @@ class PlanLesson extends Component {
             mini_nav: localStorage.layout == "compact" && window.innerWidth > 768,
             show_modal: false,
             lesson: {
-                type: "quiz",
+                type: "video",
                 videoID: "9XFUoBD6W8c"
             }
 
         }
     }
-    componentDidUpdate(){
+    componentWillReceiveProps(){
         console.log("update");
+        if(window.innerWidth<=768){
+            this.setState({mini_nav:false});
+        }
     }
     activeMenu = () => {
         this.setState(

@@ -38,70 +38,17 @@ export const login = ({ user_name, password }) => {
         });
 };
 
-//     export const dataAPI = () => {
-//         return fetch("https://uetcc-todo-app.herokuapp.com/draft")
-//             .then(reponsive => {
-//                 return reponsive.json();
-//             });
-//     }
-//     export const createTodo = (text) => {
-//         const request = new Request("https://uetcc-todo-app.herokuapp.com/draft", {
-//             method: "POST",
-//             headers: {
-//                 'Content-Type': ' application/json'
-//             },
-//             body: JSON.stringify({
-//                 title: text
-//             })
-//         });
-//         return fetch(request)
-//             .then(response => {
-//                 return response.json();
-//             });
-//     }
-//     export const deleteTodo = (id) => {
-//         const url = `https://uetcc-todo-app.herokuapp.com/draft/${id}`;
-//         const request = new Request(url, {
-//             method: 'DELETE'
-//         });
-
-//         return fetch(request)
-//             .then(response => {
-//                 return response.json();
-//             });
-//     };
-//     export const toggleTodo = (id) => {
-//         const url = `https://uetcc-todo-app.herokuapp.com/draft/${id}/toggle`;
-//         const request = new Request(url, {
-//             method: 'POST'
-//         });
-
-//         return fetch(request)
-//             .then(response => {
-//                 return response.json();
-//             });
-//     };
-
-//     return fetch(request)
-//         .then(response => {
-//             return response.json();
-//         });
-// };
-// export const login = ({ email, password }) => {
-//     const url = `https://uetcc-todo-app.herokuapp.com/login`;
-//     const request = new Request(url, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             email,
-//             password,
-//         })
-//     });
-
-//     return fetch(request)
-//         .then(response => {
-//             return response.json();
-//         });
-// };
+export const getProfile = () => {
+    const url = domain + `/users/profiles`;
+    const request = new Request(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'token':localStorage.token
+        } 
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};

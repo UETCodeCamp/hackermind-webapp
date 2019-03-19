@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { Redirect } from 'react-router';
 import './../Login.css';
 import {alertText} from './../dom.js';
 import {login} from './../services/API'
@@ -8,26 +9,30 @@ class Login extends Component {
         auth: false
     }
     login = () => {
-        alertText("Đang gửi dữ liệu....");
+        alertText("Đang gửi dữ liệu....",true);
         login({
             user_name: document.getElementById("user_name").value,
             password: document.getElementById("password").value,
         }).then(object => {
             console.log(object);
             if (object.success) {
-                localStorage.name = object.data.user;
+                console.log(object);
+                localStorage.token = object.data.token;
                 this.setState(
                     {
                         auth: true
                     }
                 );
             } else {
-                alertText(object.reason, true);
+                alertText(object.reason);
             }
         }
         );
     }
     render() {
+        if(this.state.auth){
+            return (<Redirect to="/home-course"/>);
+        }else
         return (
             <div className="login-page">
                 <div id="login-form">

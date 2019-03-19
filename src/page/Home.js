@@ -18,6 +18,7 @@ import {
 } from 'reactstrap';
 import TeamModal from '../components/TeamModal';
 import CourseItem from '../components/CourseItem';
+import {getProfile} from './../services/API';
 
 class Home extends Component {
   constructor(props) {
@@ -25,8 +26,13 @@ class Home extends Component {
     this.state = {
       team_modal: false,
       account:{
-        name:"Nguyễn Thị Dô Dép",
-        plan:"Java Team"
+        user_name: "test1",
+        id: 8,
+        avatar: null,
+        name: "loading...",
+        email: "loading...",
+        point: null,
+        description: null,
       },
       listCourse: [{
         id: 1,
@@ -42,6 +48,11 @@ class Home extends Component {
         bg: "https://cmay.vn/wp-content/uploads/2018/09/learn-ruby.png"
       }]
     }
+
+    getProfile().then(object=>{
+      this.setState({account:object.data.user})
+    })
+
   }
   teamModal = () => {
     this.setState({
@@ -56,11 +67,11 @@ class Home extends Component {
             <img src="img/icon.png" />
             Hackermind</span>
           <div id="account">
-            <span class="icon">C</span>
-            <span class="name">Trần Mạnh Cường</span>
-            <a href="mailto:iammaytinhdibo@gmail.com"> <span class="logout">Phản hồi</span></a>
-            <span onClick={this.teamModal} class="name">Teammate</span>
-            <Link to="/"> <span class="logout">Logout</span></Link>
+            <span className="icon">{this.state.account.name.split(" ")[this.state.account.name.split(" ").length-1][0].toUpperCase()}</span>
+            <span className="name">{this.state.account.name}</span>
+            <a href="mailto:iammaytinhdibo@gmail.com"> <span className="logout">Phản hồi</span></a>
+            <span onClick={this.teamModal} className="name">Teammate</span>
+            <Link to="/"> <span className="logout">Logout</span></Link>
           </div>
         </header>
 
@@ -86,13 +97,13 @@ class Home extends Component {
               <div className="activity-personal">
                 <h5>Cá nhân</h5>
                 <div className="cover-img"></div>
-                <div style={{ backgroundImage: "url(https://vtv1.mediacdn.vn/thumb_w/650/2019/3/4/meng-wanzhou-720-huawei-cfo-15516643489751859586803-1551674039895410451295.jpg)" }}
+                <div style={{ backgroundImage: "url(img/logo.png)" }}
                   className="avatar"></div>
                 <div className="infomation">
                   <span className="name">{this.state.account.name}</span>
-                  <span className="name">{this.state.account.plan}</span>
-                  <span className="name">150 points</span>
-                  <span>Joined on Oct 2018</span>
+                  <span className="name">{"@"+this.state.account.user_name}</span>
+                  <span className="name">{this.state.account.point} points</span>
+                  <span>Joined on Mar 2019</span>
                   <span className="bio">Bio: Không có gì là không thể, chỉ có thể bạn không làm được</span>
                 </div>
               </div>
