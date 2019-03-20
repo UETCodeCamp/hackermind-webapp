@@ -104,7 +104,9 @@ class Home extends Component {
                   <span className="name">{"@"+this.state.account.user_name}</span>
                   <span className="name">{this.state.account.point} points</span>
                   <span>Joined on Mar 2019</span>
-                  <span className="bio">Bio: Không có gì là không thể, chỉ có thể bạn không làm được</span>
+                  <span className="bio">Bio: Không có gì là không thể, chỉ có thể bạn không làm được
+          
+                  </span>
                 </div>
               </div>
             </Col>

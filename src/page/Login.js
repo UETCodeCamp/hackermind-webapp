@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router';
 import './../Login.css';
-import {alertText} from './../dom.js';
-import {login} from './../services/API'
+import { alertText } from './../dom.js';
+import { login } from './../services/API'
 class Login extends Component {
     state = {
         auth: false
     }
-    login = () => {
-        alertText("Đang gửi dữ liệu....",true);
+    login = (event) => {
+        alertText("Đang gửi dữ liệu....", true);
         login({
             user_name: document.getElementById("user_name").value,
             password: document.getElementById("password").value,
@@ -27,26 +27,29 @@ class Login extends Component {
                 alertText(object.reason);
             }
         }
-        );
+        ).catch(function () {
+            alertText("Lỗi kết nối! Vui lòng thử lại sau.");
+        });
+        event.preventDefault();
     }
     render() {
-        if(this.state.auth){
-            return (<Redirect to="/home-course"/>);
-        }else
-        return (
-            <div className="login-page">
-                <div id="login-form">
-                    <img src="img/logo.png" />
-                    <input id="user_name" placeholder="@username" />
-                    <input id="password" placeholder="@password" type="password" />
-                    <button onClick={this.login}>Let's go!</button>
-                    {/* <Link to="/home-course"><button>Let's go!</button></Link> */}
-                    <p>Bạn chưa có tài khoản?
+        if (this.state.auth) {
+            return (<Redirect to="/home-course" />);
+        } else
+            return (
+                <div className="login-page">
+                    <form onSubmit={this.login} id="login-form">
+                        <img src="img/logo.png" />
+                        <input id="user_name" placeholder="@username" />
+                        <input id="password" placeholder="@password" type="password" />
+                        <input type="submit" value="Let's go!" />
+                        {/* <Link to="/home-course"><button>Let's go!</button></Link> */}
+                        <p>Bạn chưa có tài khoản?
                 <Link to="/signup"> Đăng ký</Link>
-                    </p>
+                        </p>
+                    </form>
                 </div>
-            </div>
-        )
+            )
     }
 }
 export default Login;

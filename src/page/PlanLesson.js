@@ -27,7 +27,7 @@ class PlanLesson extends Component {
             mini_nav: localStorage.layout == "compact" && window.innerWidth > 768,
             show_modal: false,
             lesson: {
-                type: "video",
+                type: "quiz",
                 videoID: "9XFUoBD6W8c"
             }
 
