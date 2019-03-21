@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+
 import './../App.css';
 import './../Home.css';
 import {
@@ -24,6 +26,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      auth:!!localStorage.token,
       team_modal: false,
       account:{
         user_name: "test1",
@@ -50,7 +53,14 @@ class Home extends Component {
     }
 
     getProfile().then(object=>{
-      this.setState({account:object.data.user})
+      console.log(object.success);
+      if(object.success){
+        console.log(object.data.user);
+        this.setState({account:object.data.user});
+      }else{
+        localStorage.removeItem("token");
+        this.setState({auth:false});
+      }     
     })
 
   }
@@ -60,6 +70,9 @@ class Home extends Component {
     })
   }
   render() {
+    if(!this.state.auth){
+      return (<Redirect to="/"/>);
+    }else
     return (
       <div className="course-home">
         <header>

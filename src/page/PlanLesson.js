@@ -27,16 +27,22 @@ class PlanLesson extends Component {
             mini_nav: localStorage.layout == "compact" && window.innerWidth > 768,
             show_modal: false,
             lesson: {
-                type: "quiz",
+                type: this.props.match.params.type,
                 videoID: "9XFUoBD6W8c"
             }
 
         }
     }
-    componentWillReceiveProps(){
-        console.log("update");
-        if(window.innerWidth<=768){
-            this.setState({mini_nav:false});
+    componentWillReceiveProps() {
+        if (window.innerWidth <= 768) {
+            this.setState({ mini_nav: false });
+        }
+    }
+    componentDidUpdate(nextProps){
+        if (JSON.stringify(this.props.match) !== JSON.stringify(nextProps.match)) {
+            let lesson=this.state.lesson;
+            lesson.type=this.props.match.params.type;
+            this.setState({lesson:lesson});
         }
     }
     activeMenu = () => {
@@ -78,9 +84,9 @@ class PlanLesson extends Component {
                     <div id="road">
                         <span className="unit-tilte">UNIT 1: What is Javascript</span>
                         <ul className="unit-item">
-                         <Link to="0"> <li>Làm quen với JS</li></Link>  
-                         <Link to="1"> <li>Viết chương trình đầu tiên</li></Link>  
-                         <Link to="2">  <li>Quiz: Nodejs là gì</li></Link>  
+                            <Link to="../video/0"> <li>Làm quen với JS</li></Link>
+                            <Link to="../video/1"> <li>Viết chương trình đầu tiên</li></Link>
+                            <Link to="../quiz/1">  <li>Quiz: Nodejs là gì</li></Link>
                         </ul>
 
                         <span className="unit-tilte">PRACTICE 1: First program</span>

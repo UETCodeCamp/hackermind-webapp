@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { Redirect, Route } from 'react-router';
+import { Redirect } from 'react-router';
 import { register } from './../services/API.js';
 import {alertText} from './../dom.js';
 import './../Login.css';
