@@ -20,7 +20,6 @@ import {
 } from 'reactstrap';
 import TeamModal from '../components/TeamModal';
 import CourseItem from '../components/CourseItem';
-import {getProfile} from './../services/API';
 
 class Home extends Component {
   constructor(props) {
@@ -29,10 +28,10 @@ class Home extends Component {
       auth:!!localStorage.token,
       team_modal: false,
       account:{
-        user_name: "test1",
+        user_name: !!localStorage.user_name?localStorage.user_name:"loading...",
         id: 8,
         avatar: null,
-        name: "loading...",
+        name: !!localStorage.name?localStorage.name:"loading...",
         email: "loading...",
         point: null,
         description: null,
@@ -52,18 +51,14 @@ class Home extends Component {
       }]
     }
 
-    getProfile().then(object=>{
-      console.log(object.success);
-      if(object.success){
-        console.log(object.data.user);
-        this.setState({account:object.data.user});
-      }else{
-        localStorage.removeItem("token");
-        this.setState({auth:false});
-      }     
-    })
-
   }
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps.userdata);
+    this.setState({
+      account:nextProps.userdata
+    })
+  }
+
   teamModal = () => {
     this.setState({
       team_modal: !this.state.team_modal,
@@ -77,7 +72,7 @@ class Home extends Component {
       <div className="course-home">
         <header>
           <span id="appname">
-            <img src="img/icon.png" />
+            <img src="/img/icon.png" />
             Hackermind</span>
           <div id="account">
             <span className="icon">{this.state.account.name.split(" ")[this.state.account.name.split(" ").length-1][0].toUpperCase()}</span>
@@ -110,7 +105,7 @@ class Home extends Component {
               <div className="activity-personal">
                 <h5>Cá nhân</h5>
                 <div className="cover-img"></div>
-                <div style={{ backgroundImage: "url(img/logo.png)" }}
+                <div style={{ backgroundImage: "url(/img/logo.png)" }}
                   className="avatar"></div>
                 <div className="infomation">
                   <span className="name">{this.state.account.name}</span>

@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
-import {Route,Switch} from "react-router-dom";
-import Home from "./page/Home"
+import { Route, Switch } from "react-router-dom";
 import Login from "./page/Login"
 import Signup from "./page/Signup"
-import PlanLesson from "./page/PlanLesson"
+import Auth from "./page/Auth"
+
 import './scss/index.scss';
 import './scss/theme.scss';
 
+class NotFound extends Component {
+  render() {
+   return(
+    <div>Not found</div>
+   ) 
+  }
+}
+
 class App extends Component {
-  render(){
-    return(
+  render() {
+    return (
       <div>
-      <Switch>
-        <Route path="/home-course" component={Home}/>
-        <Route path="/plan-lesson/:id_plan/:type/:id" component={PlanLesson}/>
-        <Route path="/" exact component={Login}/>
-        <Route path="/signup" component={Signup}/>
+        <Switch>
+          <Route path="/me/" component={Auth} />
+          <Route path="/" exact component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route component={NotFound} />
         </Switch>
-         <div id="alert"></div>
-       </div>
+        <div id="alert"></div>
+      </div>
     )
   }
 }

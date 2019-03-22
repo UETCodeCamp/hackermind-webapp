@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { Redirect } from 'react-router';
 import {
     Collapse,
     Navbar,
@@ -34,6 +33,7 @@ class PlanLesson extends Component {
         }
     }
     componentWillReceiveProps() {
+        console.log(this.props.match);
         if (window.innerWidth <= 768) {
             this.setState({ mini_nav: false });
         }
@@ -67,7 +67,7 @@ class PlanLesson extends Component {
                 <div id="nav-lesson" className={this.state.mini_nav ? "activeMenu" : ""}>
                     <div id="nav-action">
                         <span onClick={this.activeMenu} id="nav-btn"><i className="fa fa-angle-left"></i></span>
-                        <Link to="/home-course"><span onClick={this.toggleModal} id="home"><i className="fas fa-home"></i></span></Link>
+                        <Link to="/me"><span onClick={this.toggleModal} id="home"><i className="fas fa-home"></i></span></Link>
                         <span onClick={this.activeMenu} id="menu-bar"><i class="fas fa-bars"></i></span>
 
                     </div>
