@@ -34,7 +34,7 @@ class Login extends Component {
     }
     render() {
         if (this.state.auth) {
-            return (<Redirect to="/me/home" />);
+            return (<Redirect to="/me" />);
         } else
             return (
                 <div className="login-page">
