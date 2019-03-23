@@ -264,6 +264,14 @@ Plan Lesson
             max-height: 100vh;
             height: calc(0.5625*(100vw - 300px));
         }
+        .desc{
+            color:#fff;
+            padding:9px;
+            padding-bottom:0;
+            p,h4{
+                margin: 0;
+            }
+        }
         #comment-list {
             position: relative;
             padding: 6px 9px;

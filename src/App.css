@@ -185,7 +185,7 @@ header #appname img {
     box-sizing: border-box;
   }
   #alert {
-    width: 350px;
+    /* width: 350px; */
   }
   #header input {
     width: 100%;
@@ -241,11 +241,13 @@ header #appname img {
   border-radius: 20px;
   cursor: pointer;
   background: #3f51b5;
-  height: 40px;
+  /* height: 40px; */
+  max-height: 40px;
   width: 40px;
   transition: 0.5s;
   overflow: hidden;
   text-align: center;
+  /* transition: max-height 0.5s,width 0.5s; */
 }
 
 #account:hover {
@@ -255,7 +257,8 @@ header #appname img {
   width: 200px;
   background: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  height: 160px;
+  /* height: auto;*/
+  max-height: 300px;
 }
 
 #account .name, #account .logout {

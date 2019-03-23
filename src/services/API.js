@@ -52,3 +52,48 @@ export const getProfile = () => {
             return response.json();
         });
 };
+
+export const getAllCourse = () => {
+    const url = domain + `/courses`;
+    const request = new Request(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'token':localStorage.token
+        } 
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};
+
+export const getChapter = (id) => {
+    const url = domain + `/courses/`+id+`/chapters`;
+    const request = new Request(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'token':localStorage.token
+        } 
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};
+
+export const getVideo = (chapterID, id) => {
+    const url = domain + `/courses/chapters/`+chapterID+`/videos/`+id;
+    const request = new Request(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'token':localStorage.token
+        } 
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};

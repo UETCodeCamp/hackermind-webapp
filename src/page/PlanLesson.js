@@ -17,6 +17,7 @@ import {
 import './../scss/checkbox.scss';
 import VideoPlayer from '../components/VideoPlayer';
 import QuizPage from '../components/QuizPage';
+import { getChapter } from '../services/API';
 
 
 class PlanLesson extends Component {
@@ -25,6 +26,7 @@ class PlanLesson extends Component {
         this.state = {
             mini_nav: localStorage.layout == "compact" && window.innerWidth > 768,
             show_modal: false,
+            chapters: [],
             lesson: {
                 type: this.props.match.params.type,
                 videoID: "9XFUoBD6W8c"
@@ -32,17 +34,22 @@ class PlanLesson extends Component {
 
         }
     }
+    componentDidMount() {
+        getChapter(this.props.match.params.slug).then(object => {
+            this.setState({ chapters: object.data.chapters });
+        })
+    }
     componentWillReceiveProps() {
         console.log(this.props.match);
         if (window.innerWidth <= 768) {
             this.setState({ mini_nav: false });
         }
     }
-    componentDidUpdate(nextProps){
+    componentDidUpdate(nextProps) {
         if (JSON.stringify(this.props.match) !== JSON.stringify(nextProps.match)) {
-            let lesson=this.state.lesson;
-            lesson.type=this.props.match.params.type;
-            this.setState({lesson:lesson});
+            let lesson = this.state.lesson;
+            lesson.type = this.props.match.params.type;
+            this.setState({ lesson: lesson });
         }
     }
     activeMenu = () => {
@@ -82,6 +89,27 @@ class PlanLesson extends Component {
 
 
                     <div id="road">
+                        {
+                            this.state.chapters.map((chapter, index) => {
+                                return (
+                                    <div className="chaper">
+                                        <span className="unit-tilte">UNIT {index + 1}: {chapter.name}</span>
+                                        <ul className="unit-item">
+                                            {
+                                                chapter.videos.map(video => {
+                                                    return <Link to={"../video/" + video.id}> <li>{video.title}</li></Link>
+                                                })
+                                            }
+                                             {
+                                                chapter.quizzes.map(quiz => {
+                                                    return <Link to={"../quiz/" + quiz.id}> <li>Quiz: {quiz.title}</li></Link>
+                                                })
+                                            }
+                                        </ul>
+                                        </div>
+                                )
+                            })
+                        }
                         <span className="unit-tilte">UNIT 1: What is Javascript</span>
                         <ul className="unit-item">
                             <Link to="../video/0"> <li>Làm quen với JS</li></Link>
@@ -107,7 +135,7 @@ class PlanLesson extends Component {
                 <div id="lesson-display" className={this.state.mini_nav ? "expand" : ""}>
                     {
                         this.state.lesson.type == "video" ?
-                            <VideoPlayer id={this.state.lesson.videoID} />
+                            <VideoPlayer chapterID={this.props.match.params.slug} id={this.props.match.params.id} />
                             : <QuizPage />
                     }
                 </div>

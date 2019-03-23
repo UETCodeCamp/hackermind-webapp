@@ -20,6 +20,7 @@ import {
 } from 'reactstrap';
 import TeamModal from '../components/TeamModal';
 import CourseItem from '../components/CourseItem';
+import { getAllCourse } from '../services/API';
 
 class Home extends Component {
   constructor(props) {
@@ -36,19 +37,17 @@ class Home extends Component {
         point: null,
         description: null,
       },
-      listCourse: [{
-        id: 1,
-        name:"Khóa học Java",
-        bg: "https://hourofcode.com/images/social-media/hoc-2018-creativity.png"
-      }, {
-        id: 1,
-        name:"Khóa học NodeJS",
-        bg: "https://trungquandev.com/wp-content/uploads/2018/04/tong-quan-nodejs-trungquandev-02-730x410.jpg"
-      }, {
-        id: 1,
-        name:"Khóa học Ruby on Rails",
-        bg: "https://cmay.vn/wp-content/uploads/2018/09/learn-ruby.png"
-      }]
+      teams:[
+        {
+          name:"Team 1 nè",
+          id:1
+        },
+        {
+          name:"Team 1 nè",
+          id:2
+        }
+      ],
+      listCourse: []
     }
 
   }
@@ -59,7 +58,17 @@ class Home extends Component {
     })
   }
 
-  teamModal = () => {
+  componentDidMount(){
+    getAllCourse().then(object=>{
+      console.log(object);
+      if(object.success){
+        this.setState({listCourse:object.data.courses});
+      }
+
+    })
+  }
+
+  teamModal = (id) => {
     this.setState({
       team_modal: !this.state.team_modal,
     })
@@ -78,7 +87,14 @@ class Home extends Component {
             <span className="icon">{this.state.account.name.split(" ")[this.state.account.name.split(" ").length-1][0].toUpperCase()}</span>
             <span className="name">{this.state.account.name}</span>
             <a href="mailto:iammaytinhdibo@gmail.com"> <span className="logout">Phản hồi</span></a>
-            <span onClick={this.teamModal} className="name">Teammate</span>
+            <span onClick={()=>this.teamModal()} className="name">Teammate</span>
+            {/* {
+              this.state.teams.map(item => {
+              return(
+                <span onClick={()=>this.teamModal(item.id)} className="name">{item.name}</span>
+              )
+            })
+            } */}
             <Link to="/"> <span className="logout">Logout</span></Link>
           </div>
         </header>
@@ -93,7 +109,7 @@ class Home extends Component {
                 {this.state.listCourse.map(item => {
                   return (
                     <Col lg="4" md="6">
-                      <CourseItem name={item.name} id={item.id} bg={item.bg} />
+                      <CourseItem name={item.name} id={item.id} bg={item.image} />
                     </Col>
                   );
                 })}
