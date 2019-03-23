@@ -40,8 +40,8 @@ class Login extends Component {
                 <div className="login-page">
                     <form onSubmit={this.login} id="login-form">
                         <img src="img/logo.png" />
-                        <input id="user_name" placeholder="@username" />
-                        <input id="password" placeholder="@password" type="password" />
+                        <input required id="user_name" placeholder="@username" />
+                        <input required id="password" placeholder="@password" type="password" />
                         <input type="submit" value="Let's go!" />
                         {/* <Link to="/home-course"><button>Let's go!</button></Link> */}
                         <p>Bạn chưa có tài khoản?

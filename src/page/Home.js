@@ -20,7 +20,7 @@ import {
 } from 'reactstrap';
 import TeamModal from '../components/TeamModal';
 import CourseItem from '../components/CourseItem';
-import { getAllCourse } from '../services/API';
+import { getAllCourse, logout } from '../services/API';
 
 class Home extends Component {
   constructor(props) {
@@ -73,6 +73,12 @@ class Home extends Component {
       team_modal: !this.state.team_modal,
     })
   }
+
+  logOut=()=>{
+    logout();
+    this.setState({auth:false});
+  }
+
   render() {
     if(!this.state.auth){
       return (<Redirect to="/"/>);
@@ -95,7 +101,7 @@ class Home extends Component {
               )
             })
             } */}
-            <Link to="/"> <span className="logout">Logout</span></Link>
+            <span onClick={this.logOut} className="logout">Đăng xuất</span>
           </div>
         </header>
 
@@ -121,7 +127,7 @@ class Home extends Component {
               <div className="activity-personal">
                 <h5>Cá nhân</h5>
                 <div className="cover-img"></div>
-                <div style={{ backgroundImage: "url(/img/logo.png)" }}
+                <div style={{ backgroundImage: "url("+localStorage.avatar+")" }}
                   className="avatar"></div>
                 <div className="infomation">
                   <span className="name">{this.state.account.name}</span>

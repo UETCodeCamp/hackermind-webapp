@@ -10,7 +10,7 @@ class Course extends Component {
     }
     componentDidMount() {
         console.log(this.props);
-        this.props.history.replace("/me/course/" + this.props.match.params.slug + "/video/0");
+        this.props.history.replace("/me/course/" + this.props.match.params.slug + "/video/1");
     }
     render() {
         return (

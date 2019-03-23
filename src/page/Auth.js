@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { Redirect } from 'react-router';
 import Home from "./../page/Home";
 import Course from "./../page/Course";
-import { getProfile } from './../services/API';
+import { getProfile, logout } from './../services/API';
 import PlanLesson from './PlanLesson';
 
 
@@ -16,7 +16,7 @@ class Auth extends Component {
             account:{
                 user_name: "test1",
                 id: 8,
-                avatar: null,
+                avatar: "",
                 name: "loading...",
                 email: "loading...",
                 point: null,
@@ -27,14 +27,14 @@ class Auth extends Component {
         getProfile().then(object => {
             console.log(object.success);
             if (object.success) {
-                console.log(object.data.user);
+                let avatar=object.data.user.avatar;
+                localStorage.setItem("avatar",avatar);
                 localStorage.name=object.data.user.name;
-                localStorage.user_name=object.data.user_name;
+                localStorage.user_name=object.data.user.user_name;
                 this.setState({ account: object.data.user });
             } else {
-                localStorage.removeItem("token");
-                localStorage.removeItem("name");
-                localStorage.removeItem("user_name");
+                logout();
+                this.setState({ loadding: "hidden" });
                 this.setState({ auth: false });
             }
         })

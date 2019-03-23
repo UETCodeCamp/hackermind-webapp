@@ -44,8 +44,8 @@ export const getProfile = () => {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'token':localStorage.token
-        } 
+            'token': localStorage.token
+        }
     })
     return fetch(request)
         .then(response => {
@@ -59,8 +59,8 @@ export const getAllCourse = () => {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'token':localStorage.token
-        } 
+            'token': localStorage.token
+        }
     })
     return fetch(request)
         .then(response => {
@@ -69,13 +69,29 @@ export const getAllCourse = () => {
 };
 
 export const getChapter = (id) => {
-    const url = domain + `/courses/`+id+`/chapters`;
+    const url = domain + `/courses/` + id + `/chapters`;
     const request = new Request(url, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'token':localStorage.token
-        } 
+            'token': localStorage.token
+        }
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};
+
+
+export const getCourse = (id) => {
+    const url = domain + `/courses/` + id ;
+    const request = new Request(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': localStorage.token
+        }
     })
     return fetch(request)
         .then(response => {
@@ -84,16 +100,58 @@ export const getChapter = (id) => {
 };
 
 export const getVideo = (chapterID, id) => {
-    const url = domain + `/courses/chapters/`+chapterID+`/videos/`+id;
+    const url = domain + `/courses/chapters/` + chapterID + `/videos/` + id;
     const request = new Request(url, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'token':localStorage.token
-        } 
+            'token': localStorage.token
+        }
     })
     return fetch(request)
         .then(response => {
             return response.json();
         });
 };
+
+export const commentVideo = ( id, content ) => {
+    console.log(id,content);
+    const url = domain + `/courses/chapters/videos/`+id+`/comments`;
+    const request = new Request(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': localStorage.token
+        },
+        body: JSON.stringify({
+            content: content,
+            image: "abc.com"
+        })
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};
+
+export const getQuiz = (chapterID, id) => {
+    const url = domain + `/courses/chapters/` + chapterID + `/quizzes/` + id;
+    const request = new Request(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': localStorage.token
+        }
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};
+
+export const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("user_name");
+    localStorage.removeItem("avatar");
+}

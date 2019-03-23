@@ -17,7 +17,7 @@ import {
 import './../scss/checkbox.scss';
 import VideoPlayer from '../components/VideoPlayer';
 import QuizPage from '../components/QuizPage';
-import { getChapter } from '../services/API';
+import { getChapter, getCourse } from '../services/API';
 
 
 class PlanLesson extends Component {
@@ -30,14 +30,24 @@ class PlanLesson extends Component {
             lesson: {
                 type: this.props.match.params.type,
                 videoID: "9XFUoBD6W8c"
+            },
+            course: {
+                name: "NodeJS",
+                avatar: "https://trungquandev.com/wp-content/uploads/2018/04/tong-quan-nodejs-trungquandev-02-730x410.jpg?fbclid=IwAR0GX4PWZ5x3ZP3vZ3d0ycY4NwgnikKTu10pJGU55BNbCuKh5KTCS58hLMk",
+                description: "Day la lop java"
             }
 
         }
     }
     componentDidMount() {
         getChapter(this.props.match.params.slug).then(object => {
-            this.setState({ chapters: object.data.chapters });
-        })
+            if (object.success)
+                this.setState({ chapters: object.data.chapters });
+        });
+        getCourse(this.props.match.params.slug).then(object => {
+            if (object.success)
+                this.setState({ course: object.data.course });
+        });
     }
     componentWillReceiveProps() {
         console.log(this.props.match);
@@ -78,9 +88,9 @@ class PlanLesson extends Component {
                         <span onClick={this.activeMenu} id="menu-bar"><i class="fas fa-bars"></i></span>
 
                     </div>
-                    <img className="logo" src="http://iconsetc.com/icons-watermarks/flat-square-white-on-pink/raphael/raphael_node-js/raphael_node-js_flat-square-white-on-pink_512x512.png" />
+                    <img className="logo" src={this.state.course.avatar} />
                     <h6>Just do it!</h6>
-                    <span className="title">Java Plan for newbie</span>
+                    <span className="title">{this.state.course.name}</span>
                     <div id="player-btn">
                         <span><i class="fas fa-step-backward"></i></span>
                         <span onClick={this.toggleModal} id="info"><i className="fa fa-file-alt"></i></span>
@@ -100,54 +110,40 @@ class PlanLesson extends Component {
                                                     return <Link to={"../video/" + video.id}> <li>{video.title}</li></Link>
                                                 })
                                             }
-                                             {
+                                            {
                                                 chapter.quizzes.map(quiz => {
                                                     return <Link to={"../quiz/" + quiz.id}> <li>Quiz: {quiz.title}</li></Link>
                                                 })
                                             }
                                         </ul>
-                                        </div>
+                                    </div>
                                 )
                             })
                         }
-                        <span className="unit-tilte">UNIT 1: What is Javascript</span>
-                        <ul className="unit-item">
-                            <Link to="../video/0"> <li>Làm quen với JS</li></Link>
-                            <Link to="../video/1"> <li>Viết chương trình đầu tiên</li></Link>
-                            <Link to="../quiz/1">  <li>Quiz: Nodejs là gì</li></Link>
-                        </ul>
-
-                        <span className="unit-tilte">PRACTICE 1: First program</span>
-                        <ul className="unit-item">
-                            <li>Làm quen với JS</li>
-                            <li>Viết chương trình đầu tiên</li>
-                            <li>Nodejs là gì</li>
-                        </ul>
-
-                        <span className="unit-tilte">UNIT 2: Get started with Node.js</span>
-                        <ul className="unit-item">
-                            <li>Làm quen với Node</li>
-                            <li>Viết chương trình đầu tiên</li>
-                            <li>Nodejs là gì</li>
-                        </ul>
+            
                     </div>
                 </div>
                 <div id="lesson-display" className={this.state.mini_nav ? "expand" : ""}>
                     {
                         this.state.lesson.type == "video" ?
                             <VideoPlayer chapterID={this.props.match.params.slug} id={this.props.match.params.id} />
-                            : <QuizPage />
+                            : <QuizPage chapterID={this.props.match.params.slug} id={this.props.match.params.id} />
                     }
                 </div>
                 <div style={{ display: this.state.show_modal ? "block" : "none" }} className="modal-popup">
                     <i onClick={this.toggleModal} class="fas fa-times-circle close-btn"></i>
                     <h4>Thông tin</h4>
                     <p>
-                        <b>Khóa học: </b>Nodejs cho người mới bắt đầu!<br />
-                        <b>Giảng dạy: </b>Bác Dôn Xơn<br />
+                        <b>Khóa học: </b>{this.state.course.name}<br />
+                    </p>
+                    <p>
+                        {this.state.course.description}
+                    </p>
+
+                    {/* <b>Giảng dạy: </b>Bác Dôn Xơn<br />
                         <b>Thời gian: </b>15 buổi<br />
                     </p>
-                    <p><b>Mô tả: </b>Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser. JavaScript is used primarily for client-side scripting, in which scripts written in JavaScript are embedded in a webpage's HTML and run client-side by a JavaScript engine in the user's web browser. </p>
+                    <p><b>Mô tả: </b>Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser. JavaScript is used primarily for client-side scripting, in which scripts written in JavaScript are embedded in a webpage's HTML and run client-side by a JavaScript engine in the user's web browser. </p> */}
                 </div>
             </div >
         )
