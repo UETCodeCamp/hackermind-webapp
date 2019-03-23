@@ -179,6 +179,24 @@ export const getTeamMate = (id) => {
         });
 };
 
+export const submitQuiz = (questions,id) => {
+    const url = domain + `/courses/chapters/quizzes/`+id+`/check_answer`;
+    const request = new Request(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': localStorage.token
+        },
+        body: JSON.stringify({
+            questions
+        })
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};
+
 export const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("name");
