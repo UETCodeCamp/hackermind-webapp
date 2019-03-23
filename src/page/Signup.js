@@ -50,7 +50,7 @@ class Signup extends Component {
                         <input id="email" placeholder="@youremail" />
                         <input className="signup-password" style={{marginRight:"1%"}} id="password" placeholder="@password" type="password" />
                         <input className="signup-password" id="repassword" placeholder="@re-password" id="repassword" type="password" />
-                        <button onClick={this.signup}>Signup!</button>
+                        <button onClick={this.signup}>Đăng ký!</button>
                     </div>
                 </div>
             )

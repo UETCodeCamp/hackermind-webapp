@@ -6,6 +6,7 @@ import Auth from "./page/Auth"
 
 import './scss/index.scss';
 import './scss/theme.scss';
+import UpdatePassword from './page/UpdatePassword';
 
 class NotFound extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
           <Route path="/me/" component={Auth} />
           <Route path="/" exact component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route path="/update-password" component={UpdatePassword} />
           <Route component={NotFound} />
         </Switch>
         <div id="alert"></div>

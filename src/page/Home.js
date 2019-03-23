@@ -107,7 +107,7 @@ class Home extends Component {
           <div id="account">
             <span className="icon">{this.state.account.name.split(" ")[this.state.account.name.split(" ").length-1][0].toUpperCase()}</span>
             <span className="name">{this.state.account.name}</span>
-            <a href="mailto:iammaytinhdibo@gmail.com"> <span className="logout">Phản hồi</span></a>
+            <Link to="/update-password"><span className="logout">Cập nhật mật khẩu</span></Link>
             <span onClick={()=>this.teamModal()} className="name">Teammate</span>
             {/* {
               this.state.teams.map(item => {

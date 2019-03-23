@@ -164,6 +164,21 @@ export const checkPortal = (id) => {
         });
 };
 
+export const getTeamMate = (id) => {
+    const url = domain + `/users/teams/`+id+`/teammates`;
+    const request = new Request(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': localStorage.token
+        }
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};
+
 export const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("name");
