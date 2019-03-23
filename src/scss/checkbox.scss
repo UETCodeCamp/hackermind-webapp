@@ -21,6 +21,18 @@
         display: block;
         text-align: center;
     }
+    .desc{
+        color:#eee;
+        text-align: center;
+        font-weight: 100;
+        border-bottom:1px solid rgba(175, 175, 175, 0.1);
+        margin:0;
+        padding-bottom:6px !important;
+        max-width: 600px;
+        display: block;
+        margin: auto;
+        margin-bottom:6px;
+    }
     ul.listcheck {
         list-style: none;
         margin: 0;

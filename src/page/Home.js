@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
-
+import {checkPortal} from './../services/API';
+import {alertText} from './../dom.js';
 import './../App.css';
 import './../Home.css';
 import {
@@ -78,6 +79,20 @@ class Home extends Component {
     logout();
     this.setState({auth:false});
   }
+  
+  accessCourse=(id)=>{
+    console.log(this.props);
+    alertText("Loading...",true);
+    checkPortal(id).then(object=>{
+      if(object.success){
+          this.props.history.push("/me/course/" + id + "/video/"+object.data.id);
+      }else{
+          alertText("Bạn không thể tham gia khóa học này",true);
+      }
+  }).catch({
+      
+  })
+  }
 
   render() {
     if(!this.state.auth){
@@ -112,10 +127,15 @@ class Home extends Component {
           <Row>
             <Col lg="9" >
               <Row>
+                {this.state.listCourse.length==0?
+                <div style={{margin:"90px auto"}}>
+                <div className="lds-ripple"><div></div><div></div></div>
+                </div>:""  
+              }
                 {this.state.listCourse.map(item => {
                   return (
                     <Col lg="4" md="6">
-                      <CourseItem name={item.name} id={item.id} bg={item.image} />
+                      <CourseItem access={this.accessCourse} name={item.name} id={item.id} bg={item.image} />
                     </Col>
                   );
                 })}
@@ -134,7 +154,7 @@ class Home extends Component {
                   <span className="name">{"@"+this.state.account.user_name}</span>
                   <span className="name">{this.state.account.point} points</span>
                   <span>Joined on Mar 2019</span>
-                  <span className="bio">Bio: Không có gì là không thể, chỉ có thể bạn không làm được
+                  <span className="bio">Bio: Sử dụng phần mềm mà gặp lỗi thì chỉ bực mình một ngày. Làm nghề lập trình, lúc nào cũng gặp bug nên bực mình cả đời.
           
                   </span>
                 </div>

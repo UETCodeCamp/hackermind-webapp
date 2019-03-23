@@ -32,8 +32,8 @@ class PlanLesson extends Component {
                 videoID: "9XFUoBD6W8c"
             },
             course: {
-                name: "NodeJS",
-                avatar: "https://trungquandev.com/wp-content/uploads/2018/04/tong-quan-nodejs-trungquandev-02-730x410.jpg?fbclid=IwAR0GX4PWZ5x3ZP3vZ3d0ycY4NwgnikKTu10pJGU55BNbCuKh5KTCS58hLMk",
+                name: "",
+                avatar: "/img/avatar.png",
                 description: "Day la lop java"
             }
 

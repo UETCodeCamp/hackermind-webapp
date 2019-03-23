@@ -12,6 +12,11 @@
     color:#eee;
     background: var(--primary-color);
 }
+.body-page{
+  .lds-ripple div {
+    border-color: var(--primary-color);
+  }
+}
 .lds-ripple {
     display: inline-block;
     position: relative;

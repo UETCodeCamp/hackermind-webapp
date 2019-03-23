@@ -149,6 +149,21 @@ export const getQuiz = (chapterID, id) => {
         });
 };
 
+export const checkPortal = (id) => {
+    const url = domain + `/courses/`+id+`/users`;
+    const request = new Request(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': localStorage.token
+        }
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};
+
 export const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("name");

@@ -6,6 +6,8 @@ class QuizPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            title: "Bài tập đầu tiên",
+            description: "",
             list: [
                 {
                     title: "Câu hỏi 1 là?",
@@ -34,6 +36,8 @@ class QuizPage extends Component {
         getQuiz(chapterID, id).then(object => {
             console.log(object.data.quiz.questions);
             if (object.success) {
+                this.setState({title:object.data.quiz.title});
+                this.setState({description:object.data.quiz.description});
                 this.setState({ list: object.data.quiz.questions })
             }
         });
@@ -62,7 +66,8 @@ class QuizPage extends Component {
     render() {
         return (
             <div id="quiz-content">
-                <h4 className="quiz-name">Quiz: Bài tập đầu tiên</h4>
+                <h4 className="quiz-name">Quiz: {this.state.title}</h4>
+                <p className="desc">{this.state.description}</p>
                 <p className="result">Bạn đã hoàn thành trắc nghiệm với số điểm:
                 <br />
                     <span className="score"><span>100</span>/100</span>

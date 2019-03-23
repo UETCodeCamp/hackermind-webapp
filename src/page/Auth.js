@@ -46,7 +46,7 @@ class Auth extends Component {
             return (
                 <div>
                     <Switch>
-                        <Route exact path="/me" render={() => <Home userdata={this.state.account} />} />
+                        <Route exact path="/me" render={() => <Home history={this.props.history} userdata={this.state.account} />} />
                         <Route path="/me/course-intro/:slug" component={Course} />
                         <Route path="/me/course/:slug/:type/:id" component={PlanLesson} />
                     </Switch>
