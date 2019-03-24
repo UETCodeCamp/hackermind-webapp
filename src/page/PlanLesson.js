@@ -106,7 +106,7 @@ class PlanLesson extends Component {
                             this.state.chapters.map((chapter, index) => {
                                 return (
                                     <div className="chaper">
-                                        <span className="unit-tilte">UNIT {index + 1}: {chapter.name}</span>
+                                        <span className="unit-tilte">CHƯƠNG {index + 1}: {chapter.name}</span>
                                         <ul className="unit-item">
                                             {
                                                 chapter.videos.map(video => {
@@ -115,13 +115,13 @@ class PlanLesson extends Component {
                                             }
                                             {
                                                 chapter.quizzes.map(quiz => {
-                                                    return <Link to={"../../quiz/" +chapter.id+"/"+ quiz.id}> <li>Quiz: {quiz.title}</li></Link>
+                                                    return <Link to={"../../quiz/" +chapter.id+"/"+ quiz.id}> <li>Trắc nghiệm: {quiz.title}</li></Link>
                                                 })
                                             }
 
 {
                                                 chapter.documents.map(document => {
-                                                    return <Link to={"../../docs/" +chapter.id+"/"+ document.id}> <li>Docs: {document.title}</li></Link>
+                                                    return <Link to={"../../docs/" +chapter.id+"/"+ document.id}> <li>Tài liệu: {document.title}</li></Link>
                                                 })
                                             }
                                         </ul>
