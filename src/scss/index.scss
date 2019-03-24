@@ -293,6 +293,9 @@ Plan Lesson
             overflow: auto;
             background:#fbfbfb;
             padding:9px 20px;
+            ul{
+                margin-left:16px;
+            }
         }
         .loading.hidden {
             opacity: 0;
