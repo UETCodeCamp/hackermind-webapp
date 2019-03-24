@@ -197,9 +197,25 @@ export const submitQuiz = (questions,id) => {
         });
 };
 
+export const changePassword = (oldPassword, newPassword) => {
+    const url = domain + `/users/password`;
+    const request = new Request(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': localStorage.token
+        },
+        body: JSON.stringify({
+            oldPassword,
+            newPassword
+        })
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};
+
 export const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("name");
-    localStorage.removeItem("user_name");
-    localStorage.removeItem("avatar");
+    localStorage.clear();
 }

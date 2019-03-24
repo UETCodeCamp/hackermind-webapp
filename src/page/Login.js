@@ -42,7 +42,7 @@ class Login extends Component {
                         <img src="img/logo.png" />
                         <input required id="user_name" placeholder="@username" />
                         <input required id="password" placeholder="@password" type="password" />
-                        <input type="submit" value="Let's go!" />
+                        <button type="submit">Let's go!</button>
                         {/* <Link to="/home-course"><button>Let's go!</button></Link> */}
                         <p>Bạn chưa có tài khoản?
                 <Link to="/signup"> Đăng ký</Link>

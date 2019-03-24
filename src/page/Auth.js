@@ -6,7 +6,7 @@ import Home from "./../page/Home";
 import Course from "./../page/Course";
 import { getProfile, logout } from './../services/API';
 import PlanLesson from './PlanLesson';
-
+import UpdatePassword from './UpdatePassword';
 
 class Auth extends Component {
     constructor(props) {
@@ -50,6 +50,8 @@ class Auth extends Component {
                         <Route exact path="/me" render={() => <Home history={this.props.history} userdata={this.state.account} />} />
                         <Route path="/me/course-intro/:slug" component={Course} />
                         <Route path="/me/course/:slug/:type/:id" component={PlanLesson} />
+                        <Route path="/me/update-password" component={UpdatePassword} />
+
                     </Switch>
                 </div>
 
