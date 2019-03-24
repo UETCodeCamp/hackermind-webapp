@@ -37,7 +37,6 @@ class QuizPage extends Component {
         this.setState({ loadding: "auto" });
         console.log("quiz");
         getQuiz(chapterID, id).then(object => {
-            console.log(object.data);
             if (object.success) {
                 this.setState({ title: object.data.quiz.title });
                 this.setState({ description: object.data.quiz.description });
@@ -64,7 +63,6 @@ class QuizPage extends Component {
             let choose_answer=[]
             if (ele) {
                 ele.forEach((item)=>{
-                    console.log(item);
                     choose_answer.push([parseInt(item.value)]);
                 });
                 vals.push({
@@ -109,7 +107,7 @@ class QuizPage extends Component {
                                 let id = "option-" + index + "-" + subindex;
                                 return (
                                     <li>
-                                        <input data-id={item.question_id} value={subindex} type={object.type} id={id} name={block} />
+                                        <input data-id={item.question_id} value={item.position} type={object.type} id={id} name={block} />
                                         <label for={id}>{item.content}</label>
                                         <div class="check"></div>
                                     </li>
