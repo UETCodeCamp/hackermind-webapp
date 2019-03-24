@@ -18,6 +18,7 @@ import './../scss/checkbox.scss';
 import VideoPlayer from '../components/VideoPlayer';
 import QuizPage from '../components/QuizPage';
 import { getChapter, getCourse } from '../services/API';
+import ReactMarkdown from 'react-markdown';
 
 
 class PlanLesson extends Component {
@@ -137,7 +138,7 @@ class PlanLesson extends Component {
                         <b>Khóa học: </b>{this.state.course.name}<br />
                     </p>
                     <p>
-                        {this.state.course.description}
+                        <ReactMarkdown source={this.state.course.description}/>
                     </p>
 
                     {/* <b>Giảng dạy: </b>Bác Dôn Xơn<br />

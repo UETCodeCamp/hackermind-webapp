@@ -47,7 +47,7 @@ class VideoPlayer extends Component {
     update = (chapterID, id) => {
         this.setState({ loadding: "auto" });
         getVideo(chapterID, id).then(object => {
-            if (object.success) {
+            if (object.success && object.data.video) {
                 this.setState({ video: object.data.video });
                 this.setState({ comments: object.data.comments });
                 this.setState({ loadding: "hidden" });
