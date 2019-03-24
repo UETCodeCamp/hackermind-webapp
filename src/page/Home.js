@@ -87,7 +87,7 @@ class Home extends Component {
       if(object.success){
           this.props.history.push("/me/course/" + id + "/video/"+object.data.id);
       }else{
-          alertText("Bạn không thể tham gia khóa học này",true);
+          alertText(object.reason,true);
       }
   }).catch({
       
@@ -120,7 +120,7 @@ class Home extends Component {
           </div>
         </header>
 
-        <TeamModal closeTeamModal={this.teamModal} display={this.state.team_modal} />
+        <TeamModal id={this.props.userdata.team_id} closeTeamModal={this.teamModal} display={this.state.team_modal} />
 
 
         <div className="body-page">
@@ -151,7 +151,7 @@ class Home extends Component {
                   className="avatar"></div>
                 <div className="infomation">
                   <span className="name">{this.state.account.name}</span>
-                  <span className="name">{"@"+this.state.account.user_name}</span>
+                  <span className="name">{this.state.account.user_name}</span>
                   <span className="name">{this.state.account.point} points</span>
                   <span>Joined on Mar 2019</span>
                   <span className="bio">Bio: Sử dụng phần mềm mà gặp lỗi thì chỉ bực mình một ngày. Làm nghề lập trình, lúc nào cũng gặp bug nên bực mình cả đời.

@@ -9,15 +9,21 @@ class TeamModal extends Component {
         list: []
       }
   }
-  componentDidMount() {
-    getTeamMate(localStorage.team_id).then(object=>{
-      console.log(object);
-      if(object.success){
-        this.setState({
-          list:object.data.team.users
-        });
-      }
-    });
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.id);
+    if (nextProps.id!=undefined) {
+      console.log(nextProps);
+      getTeamMate(nextProps.id).then(object => {
+        console.log(object);
+        if (object.success) {
+          this.setState({
+            list:object.data.team.users
+          });
+        }
+      });
+    }
+
+
   }
   render() {
     return (
@@ -38,7 +44,7 @@ class TeamModal extends Component {
                 this.state.list.map(
                   item => {
                     return (
-                      <tr className={item.role_id==2 ? "leader" : ""}>
+                      <tr className={item.role_id == 2 ? "leader" : ""}>
                         <td>{item.name}</td>
                         <td>{item.email}</td>
                       </tr>
