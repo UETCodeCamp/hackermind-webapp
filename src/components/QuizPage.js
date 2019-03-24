@@ -38,6 +38,7 @@ class QuizPage extends Component {
         console.log("quiz");
         getQuiz(chapterID, id).then(object => {
             if (object.success) {
+                console.log(object.data);
                 this.setState({ title: object.data.quiz.title });
                 this.setState({ description: object.data.quiz.description });
                 this.setState({ list: object.data.quiz.questions });
