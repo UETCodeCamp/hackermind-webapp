@@ -43,7 +43,7 @@ class QuizPage extends Component {
                 this.setState({ list: object.data.quiz.questions });
                 this.setState({ loadding: "hidden" });
                 if(object.data.quiz.is_do){
-                    this.setState({point:0})
+                    this.setState({point:object.data.quiz.point})
                 }
             }
         });

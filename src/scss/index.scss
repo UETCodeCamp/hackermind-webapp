@@ -288,6 +288,12 @@ Plan Lesson
             height: 100%;
             overflow: auto;
         }
+        #docviewer {
+            height: 100%;
+            overflow: auto;
+            background:#fbfbfb;
+            padding:9px 20px;
+        }
         .loading.hidden {
             opacity: 0;
             visibility: hidden;

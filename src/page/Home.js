@@ -85,7 +85,7 @@ class Home extends Component {
     alertText("Loading...",true);
     checkPortal(id).then(object=>{
       if(object.success){
-          this.props.history.push("/me/course/" + id + "/video/"+object.data.id);
+          this.props.history.push("/me/course/" + id + "/video/"+object.data.chapter_id+"/"+object.data.video_id);
       }else{
           alertText(object.reason,true);
       }

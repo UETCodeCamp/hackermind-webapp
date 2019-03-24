@@ -114,6 +114,21 @@ export const getVideo = (chapterID, id) => {
         });
 };
 
+export const getDocs = (chapterID, id) => {
+    const url = domain + `/courses/chapters/` + chapterID + `/documents/` + id;
+    const request = new Request(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': localStorage.token
+        }
+    })
+    return fetch(request)
+        .then(response => {
+            return response.json();
+        });
+};
+
 export const commentVideo = ( id, content ) => {
     console.log(id,content);
     const url = domain + `/courses/chapters/videos/`+id+`/comments`;

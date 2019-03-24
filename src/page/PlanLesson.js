@@ -17,6 +17,7 @@ import {
 import './../scss/checkbox.scss';
 import VideoPlayer from '../components/VideoPlayer';
 import QuizPage from '../components/QuizPage';
+import DocViewer from '../components/DocViewer';
 import { getChapter, getCourse } from '../services/API';
 import ReactMarkdown from 'react-markdown';
 
@@ -42,6 +43,7 @@ class PlanLesson extends Component {
     }
     componentDidMount() {
         getChapter(this.props.match.params.slug).then(object => {
+            console.log(object);
             if (object.success)
                 this.setState({ chapters: object.data.chapters });
         });
@@ -108,12 +110,18 @@ class PlanLesson extends Component {
                                         <ul className="unit-item">
                                             {
                                                 chapter.videos.map(video => {
-                                                    return <Link to={"../video/" + video.id}> <li>{video.title}</li></Link>
+                                                    return <Link to={"../../video/"+chapter.id+"/"+ video.id}> <li>{video.title}</li></Link>
                                                 })
                                             }
                                             {
                                                 chapter.quizzes.map(quiz => {
-                                                    return <Link to={"../quiz/" + quiz.id}> <li>Quiz: {quiz.title}</li></Link>
+                                                    return <Link to={"../../quiz/" +chapter.id+"/"+ quiz.id}> <li>Quiz: {quiz.title}</li></Link>
+                                                })
+                                            }
+
+{
+                                                chapter.documents.map(document => {
+                                                    return <Link to={"../../docs/" +chapter.id+"/"+ document.id}> <li>Docs: {document.title}</li></Link>
                                                 })
                                             }
                                         </ul>
@@ -127,8 +135,9 @@ class PlanLesson extends Component {
                 <div id="lesson-display" className={this.state.mini_nav ? "expand" : ""}>
                     {
                         this.state.lesson.type == "video" ?
-                            <VideoPlayer chapterID={this.props.match.params.slug} id={this.props.match.params.id} />
-                            : <QuizPage chapterID={this.props.match.params.slug} id={this.props.match.params.id} />
+                            <VideoPlayer chapterID={this.props.match.params.chapter_id} id={this.props.match.params.id} />
+                            : this.state.lesson.type == "quiz"?<QuizPage chapterID={this.props.match.params.chapter_id} id={this.props.match.params.id} />:
+                            <DocViewer chapterID={this.props.match.params.chapter_id} id={this.props.match.params.id}/>
                     }
                 </div>
                 <div style={{ display: this.state.show_modal ? "block" : "none" }} className="modal-popup">

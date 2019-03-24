@@ -18,7 +18,7 @@ class VideoPlayer extends Component {
     }
 
     comment = (event) => {
-        let val=document.querySelector("#comment").value;
+        let val = document.querySelector("#comment").value;
         commentVideo(this.props.id, val).then(object => {
             if (object.success) {
                 let newState = this.state.comments;
@@ -101,12 +101,12 @@ class VideoPlayer extends Component {
                     }
 
 
-                    <div className="comment-item">
+                    {/* <div className="comment-item">
                         <span style={{ backgroundImage: 'url(https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/02/28/13/bill-gates.jpg?w968h681)' }} className="comment-avt"></span>
                         <div className="comment-content">
                             Lorem Ipsum!
                 </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         );
