@@ -63,7 +63,7 @@ class QuizPage extends Component {
             let choose_answer=[]
             if (ele) {
                 ele.forEach((item)=>{
-                    choose_answer.push([parseInt(item.value)]);
+                    choose_answer.push(parseInt(item.value));
                 });
                 vals.push({
                     question_id: ele[0].getAttribute("data-id"),
