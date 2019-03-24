@@ -258,6 +258,7 @@ Plan Lesson
         }
     }
     #lesson-display {
+        scroll-behavior: smooth;
         transition: 0.25s ease-in-out;
         position: fixed;
         left: 300px;

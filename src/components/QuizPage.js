@@ -62,7 +62,7 @@ class QuizPage extends Component {
         for (let i = 0; i < this.state.list.length; i++) {
             let ele = document.querySelectorAll('input[name="option-' + i + '"]:checked');
             let choose_answer=[]
-            if (ele) {
+            if (ele.length>0) {
                 ele.forEach((item)=>{
                     choose_answer.push(parseInt(item.value));
                 });
@@ -73,12 +73,15 @@ class QuizPage extends Component {
             }
         }
         if (vals.length != this.state.list.length) {
-            alertText("Bạn phải nhập đủ dữ liệu", false);
+            alertText("Bạn cần nhập đủ đáp án!", true);
         } else {
+            document.querySelector("#lesson-display").scrollTo(0,0);
+            this.setState({ loadding: "auto"});
             submitQuiz(vals, this.props.id).then(object => {
                 console.log(object);
                 if (object.success) {
                     this.setState({point:object.data.point});
+                    this.setState({loadding:"hidden"});
                 }
             });
         }
@@ -93,7 +96,7 @@ class QuizPage extends Component {
                 <h4 className="quiz-name">Quiz: {this.state.title}</h4>
                 <p className="desc">{this.state.description}</p>
                 {
-                   this.state.point>=0? <p className="result">Bạn đã hoàn thành trắc nghiệm với số điểm:
+                   this.state.point>=0? <p id="result" className="result">Bạn đã hoàn thành trắc nghiệm với số điểm:
                     <br />
                         <span className="score"><span>{this.state.point}</span>/{this.state.list.length * 10}</span>
                     </p>:""

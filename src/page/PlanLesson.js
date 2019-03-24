@@ -20,6 +20,7 @@ import QuizPage from '../components/QuizPage';
 import DocViewer from '../components/DocViewer';
 import { getChapter, getCourse } from '../services/API';
 import ReactMarkdown from 'react-markdown';
+import { alertText } from '../dom';
 
 
 class PlanLesson extends Component {
@@ -81,6 +82,10 @@ class PlanLesson extends Component {
         show_modal: !this.state.show_modal
     })
 
+    inDevelop=()=>{
+    alertText("Chức năng này đang được phát triển!");
+    }
+
     render() {
         return (
             <div className="plan-lesson">
@@ -95,9 +100,9 @@ class PlanLesson extends Component {
                     <h6>Just do it!</h6>
                     <span className="title">{this.state.course.name}</span>
                     <div id="player-btn">
-                        <span><i class="fas fa-step-backward"></i></span>
+                        <span onClick={this.inDevelop}><i class="fas fa-step-backward"></i></span>
                         <span onClick={this.toggleModal} id="info"><i className="fa fa-file-alt"></i></span>
-                        <span><i class="fas fa-step-forward"></i></span>
+                        <span onClick={this.inDevelop}><i class="fas fa-step-forward"></i></span>
                     </div>
 
 
@@ -110,18 +115,18 @@ class PlanLesson extends Component {
                                         <ul className="unit-item">
                                             {
                                                 chapter.videos.map(video => {
-                                                    return <Link to={"../../video/"+chapter.id+"/"+ video.id}> <li>{video.title}</li></Link>
+                                                    return <Link to={"../../video/" + chapter.id + "/" + video.id}> <li>{video.title}</li></Link>
                                                 })
                                             }
                                             {
                                                 chapter.quizzes.map(quiz => {
-                                                    return <Link to={"../../quiz/" +chapter.id+"/"+ quiz.id}> <li>Trắc nghiệm: {quiz.title}</li></Link>
+                                                    return <Link to={"../../quiz/" + chapter.id + "/" + quiz.id}> <li>Trắc nghiệm: {quiz.title}</li></Link>
                                                 })
                                             }
 
-{
+                                            {
                                                 chapter.documents.map(document => {
-                                                    return <Link to={"../../docs/" +chapter.id+"/"+ document.id}> <li>Tài liệu: {document.title}</li></Link>
+                                                    return <Link to={"../../docs/" + chapter.id + "/" + document.id}> <li>Tài liệu: {document.title}</li></Link>
                                                 })
                                             }
                                         </ul>
@@ -129,15 +134,15 @@ class PlanLesson extends Component {
                                 )
                             })
                         }
-            
+
                     </div>
                 </div>
                 <div id="lesson-display" className={this.state.mini_nav ? "expand" : ""}>
                     {
                         this.state.lesson.type == "video" ?
                             <VideoPlayer chapterID={this.props.match.params.chapter_id} id={this.props.match.params.id} />
-                            : this.state.lesson.type == "quiz"?<QuizPage chapterID={this.props.match.params.chapter_id} id={this.props.match.params.id} />:
-                            <DocViewer chapterID={this.props.match.params.chapter_id} id={this.props.match.params.id}/>
+                            : this.state.lesson.type == "quiz" ? <QuizPage chapterID={this.props.match.params.chapter_id} id={this.props.match.params.id} /> :
+                                <DocViewer chapterID={this.props.match.params.chapter_id} id={this.props.match.params.id} />
                     }
                 </div>
                 <div style={{ display: this.state.show_modal ? "block" : "none" }} className="modal-popup">
@@ -147,7 +152,7 @@ class PlanLesson extends Component {
                         <b>Khóa học: </b>{this.state.course.name}<br />
                     </p>
                     <p>
-                        <ReactMarkdown source={this.state.course.description}/>
+                        <ReactMarkdown source={this.state.course.description} />
                     </p>
 
                     {/* <b>Giảng dạy: </b>Bác Dôn Xơn<br />
