@@ -22,6 +22,7 @@ class DocViewer extends Component {
             if (object.success && object.data) {
         this.setState({title:object.data.title});
         this.setState({content:object.data.content});
+        this.setState({ loadding: "hidden" });
             }
         });
     }
@@ -36,6 +37,9 @@ class DocViewer extends Component {
     render() {
         return (
             <div id="docviewer">
+                <div className={"loading " + this.state.loadding}>
+                    <div className="lds-ripple"><div></div><div></div></div>
+                </div>
                <h2>{this.state.title}</h2>
                <div className="markdown">
                <ReactMarkdown source={this.state.content}/>
