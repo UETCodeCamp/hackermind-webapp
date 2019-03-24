@@ -35,6 +35,7 @@ class QuizPage extends Component {
     }
     update = (chapterID, id) => {
         this.setState({ loadding: "auto" });
+        console.log("quiz");
         getQuiz(chapterID, id).then(object => {
             console.log(object.data);
             if (object.success) {
@@ -59,11 +60,16 @@ class QuizPage extends Component {
     submitResult = () => {
         let vals = [];
         for (let i = 0; i < this.state.list.length; i++) {
-            let ele = document.querySelector('input[name="option-' + i + '"]:checked');
+            let ele = document.querySelectorAll('input[name="option-' + i + '"]:checked');
+            let choose_answer=[]
             if (ele) {
+                ele.forEach((item)=>{
+                    console.log(item);
+                    choose_answer.push([parseInt(item.value)]);
+                });
                 vals.push({
-                    question_id: ele.getAttribute("data-id"),
-                    choose_answer: [parseInt(ele.value)]
+                    question_id: ele[0].getAttribute("data-id"),
+                    choose_answer
                 });
             }
         }
@@ -103,7 +109,7 @@ class QuizPage extends Component {
                                 let id = "option-" + index + "-" + subindex;
                                 return (
                                     <li>
-                                        <input data-id={item.question_id} value={subindex} type="radio" id={id} name={block} />
+                                        <input data-id={item.question_id} value={subindex} type={object.type} id={id} name={block} />
                                         <label for={id}>{item.content}</label>
                                         <div class="check"></div>
                                     </li>

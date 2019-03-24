@@ -20,7 +20,9 @@
         box-shadow: 0 12px 19px rgba(0, 0, 0, 0.3), 0 0 9px rgba(0, 0, 0, 0.2);
         background: var(--primary-color);
         color: #eee;
-        ;
+        .item-name {
+            height:100px;
+        }
     }
     .item-background {
         background-size: cover;
@@ -35,6 +37,10 @@
         vertical-align: middle;
         border-top: 2px solid var(--primary-color);
         border-image-slice: 20;
+        padding: 0 9px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
@@ -269,18 +275,18 @@ Plan Lesson
             padding: 9px;
             padding-bottom: 0;
             h5 {
-                padding:6px 0;
+                padding: 6px 0;
                 font-weight: 700;
                 margin: 0;
             }
-            p{
+            p {
                 margin: 0;
-                padding-top:3px;
-                margin-top:3px;
+                padding-top: 3px;
+                margin-top: 3px;
                 font-weight: 100;
-                border-top:1px solid #0f0f225b;
+                border-top: 1px solid #0f0f225b;
             }
-            p *{
+            p * {
                 font-weight: 100 !important;
             }
         }
@@ -291,10 +297,10 @@ Plan Lesson
         #docviewer {
             height: 100%;
             overflow: auto;
-            background:#fbfbfb;
-            padding:9px 20px;
-            ul{
-                margin-left:16px;
+            background: #fbfbfb;
+            padding: 9px 20px;
+            ul {
+                margin-left: 16px;
             }
         }
         .loading.hidden {
