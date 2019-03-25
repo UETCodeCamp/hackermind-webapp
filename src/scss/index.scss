@@ -175,7 +175,7 @@ Plan Lesson
         }
         .title {
             font-size: 18px;
-            padding:6px;
+            padding: 6px;
         }
         #player-btn {
             display: block;
@@ -300,9 +300,27 @@ Plan Lesson
             height: 100%;
             overflow: auto;
             padding: 9px 20px;
-            color:#eee;
+            color: #eee;
             ul {
                 margin-left: 16px;
+            }
+        }
+        #docembed {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            iframe {
+                border: none;
+                background: #0f1022;
+            }
+            .viewer-title {
+                height: 40px;
+                line-height: 40px;
+                color: #eee;
+                text-align: center;
+            }
+            .iframe {
+                height: calc(100% - 40px);
             }
         }
         .loading.hidden {
@@ -486,7 +504,7 @@ Plan Lesson
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: block;
-                font-size:1em;
+                font-size: 1em;
             }
             h6 {
                 display: none;
@@ -725,15 +743,15 @@ Plan Lesson
     }
 }
 
-[data-title]:hover{
+[data-title]:hover {
     z-index: 1000;
 }
-  
-  [data-title]:hover::before {
+
+[data-title]:hover::before {
     content: attr(data-title);
     position: absolute;
     bottom: -26px;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     display: inline-block;
     padding: 3px 6px;
@@ -744,15 +762,17 @@ Plan Lesson
     font-family: sans-serif;
     white-space: nowrap;
     z-index: 1000;
-  }
-  [data-title]:hover::after {
+}
+
+[data-title]:hover::after {
     content: '';
     position: absolute;
     bottom: -2px;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     display: inline-block;
     color: #fff;
-    border: 8px solid transparent;	
-    border-bottom: 8px solid rgba(0, 0, 0, 0.7);;
-  }
+    border: 8px solid transparent;
+    border-bottom: 8px solid rgba(0, 0, 0, 0.7);
+    ;
+}
