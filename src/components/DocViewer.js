@@ -42,7 +42,8 @@ class DocViewer extends Component {
                 </div>
                <h2>{this.state.title}</h2>
                <div className="markdown">
-               <ReactMarkdown source={this.state.content}/>
+               <ReactMarkdown  source={this.state.content}
+               />
                </div>           
             </div>
         );

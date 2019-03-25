@@ -5,6 +5,7 @@
 
 .course-home .course-item {
     position: relative;
+    overflow: visible;
     margin: 9px;
     color: #566375;
     box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1);
@@ -12,7 +13,6 @@
     background-color: #fff;
     height: 200px;
     border: none;
-    overflow: hidden;
     transition: 0.25s ease-in-out;
     user-select: none;
     &:hover {
@@ -29,6 +29,7 @@
         background-position: center;
         width: 100%;
         height: 150px;
+        border-radius: 9px 9px 0 0;
     }
     .item-name {
         height: 50px;
@@ -298,8 +299,8 @@ Plan Lesson
         #docviewer {
             height: 100%;
             overflow: auto;
-            background: #fbfbfb;
             padding: 9px 20px;
+            color:#eee;
             ul {
                 margin-left: 16px;
             }
@@ -723,3 +724,35 @@ Plan Lesson
         margin-bottom: 20px;
     }
 }
+
+[data-title]:hover{
+    z-index: 1000;
+}
+  
+  [data-title]:hover::before {
+    content: attr(data-title);
+    position: absolute;
+    bottom: -26px;
+    left:50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 12px;
+    font-family: sans-serif;
+    white-space: nowrap;
+    z-index: 1000;
+  }
+  [data-title]:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left:50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    color: #fff;
+    border: 8px solid transparent;	
+    border-bottom: 8px solid rgba(0, 0, 0, 0.7);;
+  }
