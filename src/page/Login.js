@@ -6,7 +6,7 @@ import { alertText } from './../dom.js';
 import { login } from './../services/API'
 class Login extends Component {
     state = {
-        auth: false
+        auth: !!localStorage.token
     }
     login = (event) => {
         alertText("Đang gửi dữ liệu....", true);
