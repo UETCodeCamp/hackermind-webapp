@@ -35,7 +35,7 @@ class Home extends Component {
         avatar: null,
         name: !!localStorage.name?localStorage.name:"loading...",
         email: "loading...",
-        point: null,
+        point: !!localStorage.point?localStorage.point:"0",
         description: null,
       },
       teams:[

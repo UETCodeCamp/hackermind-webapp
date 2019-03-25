@@ -32,6 +32,7 @@ class Auth extends Component {
                 localStorage.name=object.data.user.name;
                 localStorage.user_name=object.data.user.user_name;
                 localStorage.team_id=object.data.user.team_id;
+                localStorage.point=object.data.user.point;
                 this.setState({ account: object.data.user });
             } else {
                 logout();
