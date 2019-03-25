@@ -83,7 +83,7 @@ class PlanLesson extends Component {
     })
 
     inDevelop=()=>{
-    alertText("Chức năng này đang được phát triển!");
+    alertText("Chức năng này đang được phát triển!",true);
     }
 
     render() {
