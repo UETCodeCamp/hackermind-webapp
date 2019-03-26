@@ -32,6 +32,9 @@ class Login extends Component {
         });
         event.preventDefault();
     }
+    componentDidMount(){
+        document.body.style.backgroundColor="#5c7ca1";
+    }
     render() {
         if (this.state.auth) {
             return (<Redirect to="/me" />);

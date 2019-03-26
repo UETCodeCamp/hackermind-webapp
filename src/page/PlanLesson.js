@@ -43,6 +43,9 @@ class PlanLesson extends Component {
         }
     }
     componentDidMount() {
+        document.body.style.backgroundColor = "#0f0f23";
+        var metaThemeColor = document.querySelector("meta[name=theme-color]");
+        metaThemeColor.setAttribute("content", "#0f0f23");
         getChapter(this.props.match.params.slug).then(object => {
             console.log(object);
             if (object.success)
@@ -82,8 +85,8 @@ class PlanLesson extends Component {
         show_modal: !this.state.show_modal
     })
 
-    inDevelop=()=>{
-    alertText("Chức năng này đang được phát triển!",true);
+    inDevelop = () => {
+        alertText("Chức năng này đang được phát triển!", true);
     }
 
     render() {

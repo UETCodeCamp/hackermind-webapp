@@ -2,6 +2,10 @@
     --primary-color: #3f51b5;
     --second-color: #7c43bd;
 }
+body{
+    background:#329;
+    transition:background 0.5s;
+}
 
 .course-home .course-item {
     position: relative;
@@ -733,6 +737,7 @@ Plan Lesson
 
 .body-page {
     position: fixed;
+    background:#f2f7f9;
     top: 50px;
     left: 0;
     right: 0;
@@ -759,7 +764,6 @@ Plan Lesson
     background: rgba(0, 0, 0, 0.7);
     color: #fff;
     font-size: 12px;
-    font-family: sans-serif;
     white-space: nowrap;
     z-index: 1000;
 }

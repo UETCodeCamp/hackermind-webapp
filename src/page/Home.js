@@ -60,6 +60,10 @@ class Home extends Component {
   }
 
   componentDidMount(){
+    var metaThemeColor = document.querySelector("meta[name=theme-color]");
+    metaThemeColor.setAttribute("content", "#fff");
+    document.body.style.backgroundColor="#fff";
+    
     getAllCourse().then(object=>{
       console.log(object);
       if(object.success){
