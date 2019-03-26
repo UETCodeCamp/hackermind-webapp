@@ -43,7 +43,7 @@ class Login extends Component {
                 <div className="login-page">
                     <form onSubmit={this.login} id="login-form">
                         <img src="img/logo.png" />
-                        <input required id="user_name" placeholder="@username" />
+                        <input required id="user_name" autocapitalize="off" placeholder="@username" />
                         <input required id="password" placeholder="@password" type="password" />
                         <button type="submit">Let's go!</button>
                         {/* <Link to="/home-course"><button>Let's go!</button></Link> */}
