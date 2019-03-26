@@ -7,13 +7,15 @@ import Course from "./../page/Course";
 import { getProfile, logout } from './../services/API';
 import PlanLesson from './PlanLesson';
 import UpdatePassword from './UpdatePassword';
+import MetaTags from 'react-meta-tags';
+
 
 class Auth extends Component {
     constructor(props) {
         super(props);
         this.state = {
             auth: !!localStorage.token,
-            account:{
+            account: {
                 user_name: "test1",
                 id: 8,
                 avatar: "",
@@ -21,18 +23,18 @@ class Auth extends Component {
                 email: "loading...",
                 point: null,
                 description: null,
-              }
+            }
         }
 
         getProfile().then(object => {
             console.log(object.success);
             if (object.success) {
-                let avatar=object.data.user.avatar;
-                localStorage.setItem("avatar",avatar);
-                localStorage.name=object.data.user.name;
-                localStorage.user_name=object.data.user.user_name;
-                localStorage.team_id=object.data.user.team_id;
-                localStorage.point=object.data.user.point;
+                let avatar = object.data.user.avatar;
+                localStorage.setItem("avatar", avatar);
+                localStorage.name = object.data.user.name;
+                localStorage.user_name = object.data.user.user_name;
+                localStorage.team_id = object.data.user.team_id;
+                localStorage.point = object.data.user.point;
                 this.setState({ account: object.data.user });
             } else {
                 logout();
@@ -47,6 +49,9 @@ class Auth extends Component {
         } else
             return (
                 <div>
+                    <MetaTags>
+                        <meta id="og-image" property="og:image" content="https://hackermind.dev/img/banner.jpg" />
+                    </MetaTags>
                     <Switch>
                         <Route exact path="/me" render={() => <Home history={this.props.history} userdata={this.state.account} />} />
                         <Route path="/me/course-intro/:slug" component={Course} />
