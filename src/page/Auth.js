@@ -7,8 +7,6 @@ import Course from "./../page/Course";
 import { getProfile, logout } from './../services/API';
 import PlanLesson from './PlanLesson';
 import UpdatePassword from './UpdatePassword';
-import MetaTags from 'react-meta-tags';
-
 
 class Auth extends Component {
     constructor(props) {
@@ -49,9 +47,6 @@ class Auth extends Component {
         } else
             return (
                 <div>
-                    <MetaTags>
-                    <meta property="og:image" content="https://hackermind.dev/img/banner.jpg" />
-                    </MetaTags>
                     <Switch>
                         <Route exact path="/me" render={() => <Home history={this.props.history} userdata={this.state.account} />} />
                         <Route path="/me/course-intro/:slug" component={Course} />
