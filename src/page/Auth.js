@@ -50,7 +50,7 @@ class Auth extends Component {
             return (
                 <div>
                     <MetaTags>
-                        <meta id="og-image" property="og:image" content="https://hackermind.dev/img/banner.jpg" />
+                    <meta property="og:image" content="https://hackermind.dev/img/banner.jpg" />
                     </MetaTags>
                     <Switch>
                         <Route exact path="/me" render={() => <Home history={this.props.history} userdata={this.state.account} />} />
