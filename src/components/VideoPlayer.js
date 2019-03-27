@@ -69,7 +69,7 @@ class VideoPlayer extends Component {
                     <div className="lds-ripple"><div></div><div></div></div>
                 </div>
                 <div id="video">
-                    <iframe width="100%" height="100%" src={"https://www.youtube.com/embed/" + this.state.video.url} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <iframe width="100%" height="100%" src={"https://www.youtube.com/embed/" + this.state.video.url+"?rel=0"} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>
                 <div className="desc">
                     <h5>{this.state.video.title}</h5>
